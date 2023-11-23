@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function getTest(id): Promise<{id: string, name: string}> {
+export async function getTest(id: string): Promise<{id: string, name: string}> {
     try {
         const res = await axios.get(`http://localhost:3000/test/${id}`);
         return res.data;
@@ -9,7 +9,7 @@ export async function getTest(id): Promise<{id: string, name: string}> {
     }
 }
 
-export async function addTest(name): Promise<{id: string, name: string}> {
+export async function addTest(name: string): Promise<{id: string, name: string}> {
     try {
         const res = await axios.post('http://localhost:3000/test/', {
             name,

@@ -13,7 +13,7 @@ export const StudentBar = ({simplified}) => {
                 <span>Rezerwacja do: <b>DD.MM.YYYY r.</b> </span>
                 <img src="" alt=""/>
                 <span> NAME </span>
-                <button>Pokaż CV</button>
+                <div>Pokaż CV</div>
                 <div>Zainteresowania</div>
                 <div>Zatrudnienie</div>
                 <i>\/</i>

@@ -1,4 +1,4 @@
-import { StudentsComponentDiv } from './StudentsComponent.styles.ts';
+import {StudentsMain, StudentsHeader, FilterBtn, LoupDiv, Hr, HeaderBtnsSpan, StudentsComponentDiv, SearchInput} from './StudentsComponent.styles.ts';
 import {StudentBar} from "../../molecules/StudentBar/StudentBar";
 import {useState} from "react";
 
@@ -8,13 +8,19 @@ export const StudentsComponent = () => {
 
     return (
         <StudentsComponentDiv>
-            <button onClick={()=>setSimplified(true)}>Dostępni kursanci</button>
-            <button onClick={()=>setSimplified(false)}>Do rozmowy</button>
-            <hr/>
-            <button>🔍</button><input type="text" placeholder="Szukaj"/>
-            <button>Filtrowanie</button>
-            <hr/>
-            <StudentBar simplified={simplified}/>
+            <StudentsHeader>
+                <HeaderBtnsSpan onClick={()=>setSimplified(true)}> Dostępni kursanci </HeaderBtnsSpan>
+                <HeaderBtnsSpan onClick={()=>setSimplified(false)}> Do rozmowy </HeaderBtnsSpan>
+            </StudentsHeader>
+
+            <StudentsMain>
+                <LoupDiv>🔍</LoupDiv><SearchInput type="text" placeholder="Szukaj"/>
+                <FilterBtn>🏴Filtrowanie</FilterBtn>
+
+                <Hr/>
+                <StudentBar simplified={simplified}/>
+                {/* Students.map() ...*/}
+            </StudentsMain>
         </StudentsComponentDiv>
     )
 }

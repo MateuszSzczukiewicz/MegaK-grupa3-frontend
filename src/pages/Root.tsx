@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { Homepage } from './Homepage.tsx';
+import { LoginPage } from './LoginPage.tsx';
 
 export const Root = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<Homepage />} />
+			<Route path="/" element={<LoginPage />} />
 		</Routes>
 	);
 };

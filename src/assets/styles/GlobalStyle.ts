@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import './fonts.css';
 
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -7,25 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  html {
-    font-size: 62.5%;
-  }
-
-  body {
-    margin: 0;
-    font-size: 1.6rem;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: "Merriweather", serif;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-
-  p, li, a {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    font-size: 1.5rem;
+  header, main, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, li, a, label, input, select {
+    font-family: "Catamaran", sans-serif;
+    font-weight: ${({ theme }) => theme.font.weight.regular};
   }
 `;

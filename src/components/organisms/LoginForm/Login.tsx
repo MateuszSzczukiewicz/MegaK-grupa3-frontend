@@ -1,12 +1,16 @@
-import { StyledImage, StyledLogin } from './Login.styles.ts';
+import { StyledImage, StyledLogin, Wrapper } from './Login.styles.ts';
 import logo from '../../../assets/images/logo.webp';
 import { LoginForm } from '../../molecules/LoginForm/LoginForm.tsx';
+import { AuthButtons } from '../../molecules/AuthButtons/AuthButtons.tsx';
 
 export const Login = () => {
 	return (
-		<StyledLogin>
-			<StyledImage src={logo} alt="Logo" />
-			<LoginForm />
-		</StyledLogin>
+		<Wrapper>
+			<StyledLogin>
+				<StyledImage src={logo} alt="Logo" />
+				<LoginForm />
+				<AuthButtons />
+			</StyledLogin>
+		</Wrapper>
 	);
 };

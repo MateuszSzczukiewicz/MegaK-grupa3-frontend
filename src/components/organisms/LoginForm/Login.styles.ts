@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledImage = styled.img`
-	object-fit: cover;
-	width: 124px;
-	height: 76px;
-	margin-bottom: 30px;
-`;
-
-export const StyledLogin = styled.main`
+export const Wrapper = styled.main`
 	display: flex;
 	height: 100vh;
 	width: 100vw;
@@ -15,5 +8,17 @@ export const StyledLogin = styled.main`
 	align-items: center;
 	flex-direction: column;
 	background-color: ${({ theme }) => theme.color.black};
-	font-weight: ${({ theme }) => theme.font.weight.bold};
+`;
+
+export const StyledLogin = styled.main`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const StyledImage = styled.img`
+	align-self: center;
+	object-fit: cover;
+	width: 124px;
+	height: 76px;
+	margin-bottom: 30px;
 `;

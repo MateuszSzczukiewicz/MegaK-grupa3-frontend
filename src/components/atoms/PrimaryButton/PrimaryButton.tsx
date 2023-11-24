@@ -4,9 +4,4 @@ type Props ={
     context:string;
 }
 
-export const PrimaryButton = ({context}:Props) =>{
-
-    return(
-        <PrimaryButtonStyle>{context}</PrimaryButtonStyle>
-    )
-}
+export const PrimaryButton = ({context}:Props) => <PrimaryButtonStyle>{context}</PrimaryButtonStyle>

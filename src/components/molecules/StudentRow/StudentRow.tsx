@@ -20,7 +20,7 @@ export const StudentRow = ({simplified}) => {
 
                 <ButtonsStyle>
                     <PrimaryButton context={'Pokaż CV'}/>
-                    <PrimaryButton context={'Brak Zainteresowania'}/>
+                    <PrimaryButton context={'Brak zainteresowania'}/>
                     <PrimaryButton context={'Zatrudniony'}/>
                     <ChevronDownIcon/>
                 </ButtonsStyle>

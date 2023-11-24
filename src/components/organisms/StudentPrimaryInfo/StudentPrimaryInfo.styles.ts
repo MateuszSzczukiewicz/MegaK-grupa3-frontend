@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled.section`
+export const StudentPrimaryInfoSection = styled.section`
 	display: flex;
 	justify-content: center;
 	align-items: center;

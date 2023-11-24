@@ -1,6 +1,7 @@
-import {StudentsMain, StudentsHeader, FilterBtn, LoupDiv, Hr, HeaderBtnsSpan, StudentsComponentDiv, SearchInput} from './StudentsComponent.styles.ts';
-import {StudentBar} from "../../molecules/StudentBar/StudentBar";
+import { StudentsComponentDiv } from './StudentsComponent.styles.ts';
 import {useState} from "react";
+import {StudentsPageHeader} from "../../molecules/StudentsPageHeader/StudentsPageHeader";
+import {StudentsPageMain} from "../../molecules/StudentsPageMain/StudentsPageMain";
 
 export const StudentsComponent = () => {
 
@@ -8,19 +9,8 @@ export const StudentsComponent = () => {
 
     return (
         <StudentsComponentDiv>
-            <StudentsHeader>
-                <HeaderBtnsSpan onClick={()=>setSimplified(true)}> Dostępni kursanci </HeaderBtnsSpan>
-                <HeaderBtnsSpan onClick={()=>setSimplified(false)}> Do rozmowy </HeaderBtnsSpan>
-            </StudentsHeader>
-
-            <StudentsMain>
-                <LoupDiv>🔍</LoupDiv><SearchInput type="text" placeholder="Szukaj"/>
-                <FilterBtn>🏴Filtrowanie</FilterBtn>
-
-                <Hr/>
-                <StudentBar simplified={simplified}/>
-                {/* Students.map() ...*/}
-            </StudentsMain>
+            <StudentsPageHeader simplified={simplified} setSimplified={setSimplified}/>
+            <StudentsPageMain simplified={simplified}/>
         </StudentsComponentDiv>
     )
 }

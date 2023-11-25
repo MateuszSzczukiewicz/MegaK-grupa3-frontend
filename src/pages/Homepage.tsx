@@ -1,4 +1,4 @@
-import { Header } from '../components/atoms/Header/Header.tsx';
+import { Header } from '../components/molecules/Header/Header.tsx';
 
 export const Homepage = () => {
 	return <Header />;

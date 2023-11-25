@@ -13,4 +13,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Catamaran", sans-serif;
     font-weight: ${({ theme }) => theme.font.weight.regular};
   }
+	
+	body {
+		background-color: ${({ theme }) => theme.color.grey9};;
+	}
 `;

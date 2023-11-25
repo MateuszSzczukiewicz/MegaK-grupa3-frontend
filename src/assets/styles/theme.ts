@@ -10,6 +10,8 @@ export const theme = {
 		grey5: '#CFCFCF',
 		grey6: '#292A2B',
 		grey7: '#222324',
+		grey8: '#1E1E1F',
+		grey9: '#222224',
 		white: '#F7F7F7',
 		red2: '#FF0004',
 		red3: '#EE4540',
@@ -28,7 +30,7 @@ export const theme = {
 			lg: '18px',
 			xl: '20px',
 			xxl: '22px',
-			xxxl: '24px',
+			xxxl: '22px',
 		},
 		weight: {
 			regular: '400',

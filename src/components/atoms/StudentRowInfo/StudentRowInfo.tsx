@@ -3,16 +3,16 @@ import {BStyle, StudentRowInfoStyle, DateStyle, ImgStyle, NameStyle} from "./Stu
 type Props = {
     name:string;
     surname:string;
-    reservationDate:string;
+    reservationDate?:string|null;
 }
 
 export const StudentRowInfo = ({ name, surname, reservationDate }:Props) =>{
 
     return(
         <StudentRowInfoStyle>
-            <DateStyle>Rezerwacja do: <br/> <BStyle> {reservationDate} r.</BStyle></DateStyle>
+            {reservationDate ? <DateStyle>Rezerwacja do: <br/> <BStyle> {reservationDate} r.</BStyle></DateStyle>: null }
             <div>
-                <ImgStyle src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled.png" alt=""/>
+                {reservationDate ? <ImgStyle src="https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled.png" alt=""/>:null}
                 <NameStyle> {name} {surname} </NameStyle>
             </div>
         </StudentRowInfoStyle>

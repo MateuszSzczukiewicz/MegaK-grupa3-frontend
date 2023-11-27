@@ -1,29 +1,43 @@
-import {StudentRowStyle, ButtonsStyle} from './StudentRow.styles.ts';
+import {ArrowStyle, StudentRowStyle, ButtonsStyle} from './StudentRow.styles.ts';
 import {PrimaryButton} from "../../atoms/PrimaryButton/PrimaryButton";
 import {StudentRowInfo} from "../../atoms/StudentRowInfo/StudentRowInfo";
 import {ChevronDownIcon} from "../../../assets/icons/ChevronDownIcon";
+import {useState} from "react";
+import {StudentRatings} from "../StudentRatings/StudentRatings";
 
-export const StudentRow = ({simplified}) => {
+type Props = {
+    name:string;
+    surname:string;
+    reservationDate:string;
+    simplified:boolean;
+}
+
+export const StudentRow = ({name,surname,reservationDate, simplified}:Props) => {
+
+    const [showInfo, setShowInfo] = useState(false);
+
+    const arrowStyle = showInfo ? {rotate:'180deg'} : {rotate:'0deg'}
 
     return (
-        simplified ?
             <StudentRowStyle>
-                <StudentRowInfo name='Jan' surname='Kowalski' reservationDate='12.12.2023'/>
-                <ButtonsStyle>
-                    <PrimaryButton context={'Zarezerwój rozmowę'}/>
-                    <ChevronDownIcon/>
-                </ButtonsStyle>
-            </StudentRowStyle>
-            :
-            <StudentRowStyle>
-                <StudentRowInfo name='Jan' surname='Kowalski' reservationDate='12.12.2023'/>
+                <StudentRowInfo name={name} surname={surname} reservationDate={simplified ? null : reservationDate}/>
 
                 <ButtonsStyle>
-                    <PrimaryButton context={'Pokaż CV'}/>
-                    <PrimaryButton context={'Brak zainteresowania'}/>
-                    <PrimaryButton context={'Zatrudniony'}/>
-                    <ChevronDownIcon/>
+                    {simplified ?
+                        <PrimaryButton context={'Zarezerwój rozmowę'}/>
+                        :
+                        <>
+                        <PrimaryButton context={'Pokaż CV'}/>
+                        <PrimaryButton context={'Brak zainteresowania'}/>
+                        <PrimaryButton context={'Zatrudniony'}/>
+                        </>
+                    }
+                    <ArrowStyle style={arrowStyle} onClick={()=>setShowInfo(prevState => !prevState)}>
+                        <ChevronDownIcon/>
+                    </ArrowStyle>
                 </ButtonsStyle>
+
+                {showInfo ? <StudentRatings/> : null}
             </StudentRowStyle>
     )
 }

@@ -6,9 +6,16 @@ export const StudentPrimaryInfoSection = styled.section`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	align-self: self-start;
-	width: 250px;
+  width: 100%;
+	margin-bottom: 20px;
 	padding-top: 30px;
 	padding-bottom: 9px;
 	background-color: ${({ theme }) => theme.color.grey6};
+
+  ${({ theme }) => theme.mq.md} {
+    width: 250px;
+    align-self: self-start;
+    margin-bottom: 0;
+  }
+}
 `;

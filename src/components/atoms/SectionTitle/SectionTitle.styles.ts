@@ -6,8 +6,12 @@ export const StyledSection = styled.div`
 	width: 100%;
 	h3 {
 		margin-left: 26px;
-		font-size: ${({ theme }) => theme.font.size.xl};
+		font-size: ${({ theme }) => theme.font.size.sm};
 		font-weight: ${({ theme }) => theme.font.weight.bold};
 		line-height: 60px;
+	}
+
+	${({ theme }) => theme.mq.sm} {
+		font-size: ${({ theme }) => theme.font.size.xl};
 	}
 `;

@@ -4,10 +4,10 @@ export const SingleDetailWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	align-self: self-start;
 	height: 27px;
 	margin-bottom: 8px;
 	margin-left: 22px;
+
 	svg {
 		height: 15px;
 		fill: ${({ theme }) => theme.color.grey1};
@@ -19,5 +19,9 @@ export const SingleDetailWrapper = styled.div`
 		line-height: 15px;
 		color: ${({ theme }) => theme.color.white};
 		text-decoration: none;
+	}
+
+	${({ theme }) => theme.mq.md} {
+		align-self: self-start;
 	}
 `;

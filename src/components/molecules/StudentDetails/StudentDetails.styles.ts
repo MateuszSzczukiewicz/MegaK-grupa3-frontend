@@ -4,7 +4,6 @@ import user from '../../../assets/images/blank_user.png';
 export const StyledImgWrapper = styled.div`
 	width: 150px;
 	height: 150px;
-	background-color: #fff;
 	background-image: url(${user});
 	background-size: cover;
 	background-position: center;

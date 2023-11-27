@@ -5,7 +5,7 @@ export const StyledHeader = styled.header`
 	align-items: center;
 	justify-content: center;
 	height: 80px;
-	background-color: ${({ theme }) => theme.color.grey8};
+	background-color: ${({ theme }) => theme.color.grey7};
 `;
 
 export const StyledWrapper = styled.div`
@@ -13,6 +13,11 @@ export const StyledWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 1430px;
+	margin: 0 20px;
+
+	${({ theme }) => theme.mq.md} {
+		margin: 0 75px;
+	}
 `;
 
 export const StyledLogo = styled.img`

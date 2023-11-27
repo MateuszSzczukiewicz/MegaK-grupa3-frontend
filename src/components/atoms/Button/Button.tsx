@@ -1,10 +1,6 @@
 import { StyledButton } from './Button.styles';
-import * as React from 'react';
+import { ReactNode } from 'react';
 
-interface Props {
-	children: React.ReactNode;
-}
-
-export const Button = ({ children }: Props) => {
+export const Button = ({ children }: { children: ReactNode }) => {
 	return <StyledButton>{children}</StyledButton>;
 };

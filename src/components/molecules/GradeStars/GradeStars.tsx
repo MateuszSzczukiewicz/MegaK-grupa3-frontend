@@ -1,22 +1,25 @@
 import * as React from 'react';
 import { StarIcon } from '../../../assets/icons/StarIcon';
-import { GradeStarsSection } from './GradeStars.styles';
+import { GradeStarsSection, Star } from './GradeStars.styles';
 
-interface Props {
-	grade: number;
-}
-
-export const GradeStars = ({ grade }: Props) => {
+export const GradeStars = ({ grade }: { grade: number }) => {
 	return (
 		<GradeStarsSection>
 			<p>
 				<span>{grade}</span> /5
 			</p>
-			<StarIcon />
-			<StarIcon />
-			<StarIcon />
-			<StarIcon />
-			<StarIcon />
+
+			{[1, 2, 3, 4, 5].map((star) => {
+				return grade >= star ? (
+					<Star key={star} $red>
+						<StarIcon />
+					</Star>
+				) : (
+					<Star key={star}>
+						<StarIcon />
+					</Star>
+				);
+			})}
 		</GradeStarsSection>
 	);
 };

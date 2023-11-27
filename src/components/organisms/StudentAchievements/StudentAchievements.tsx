@@ -6,7 +6,7 @@ import {
 } from './StudentAchievements.styles';
 import { TextArea } from '../../atoms/TextArea/TextArea';
 import { Link } from '../../atoms/Link/Link';
-import { GradeOrEmplExpectElement } from '../../molecules/EmploymentExpectation/GradeOrEmplExpectElement';
+import { GradeOrEmplExpectElement } from '../../molecules/GradeOrEmplExpectElement/GradeOrEmplExpectElement';
 import { GradeStars } from '../../molecules/GradeStars/GradeStars';
 
 export const StudentAchievements = () => {
@@ -15,16 +15,16 @@ export const StudentAchievements = () => {
 			<SectionTitle>Oceny</SectionTitle>
 			<Grades>
 				<GradeOrEmplExpectElement expectationName="Ocena przejścia kursu">
-					<GradeStars grade={4}></GradeStars>
+					<GradeStars grade={2}></GradeStars>
 				</GradeOrEmplExpectElement>
 				<GradeOrEmplExpectElement expectationName="Ocena aktywności i zaangażowania na kursie">
 					<GradeStars grade={4}></GradeStars>
 				</GradeOrEmplExpectElement>
 				<GradeOrEmplExpectElement expectationName="Ocena kodu w projekcie własnym">
-					<GradeStars grade={4}></GradeStars>
+					<GradeStars grade={5}></GradeStars>
 				</GradeOrEmplExpectElement>
 				<GradeOrEmplExpectElement expectationName="Ocena pracy w zespole Scrum">
-					<GradeStars grade={4}></GradeStars>
+					<GradeStars grade={3}></GradeStars>
 				</GradeOrEmplExpectElement>
 			</Grades>
 			<SectionTitle>Oczekiwanie w stosunku do zatrudnienia</SectionTitle>
@@ -50,7 +50,12 @@ export const StudentAchievements = () => {
 			</EmploymentExpectations>
 			<SectionTitle>Edukacja</SectionTitle>
 			<TextArea>
-				<p>{/*{student.education}*/}</p>
+				<p>
+					Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+					invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+					accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+					sanctus est Lorem ipsum dolor sit amet.
+				</p>
 			</TextArea>
 			<SectionTitle>Kursy</SectionTitle>
 			<TextArea>

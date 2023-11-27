@@ -1,11 +1,7 @@
 import { StyledSection } from './SectionTitle.styles';
-import * as React from 'react';
+import { ReactNode } from 'react';
 
-interface Props {
-	children: React.ReactNode;
-}
-
-export const SectionTitle = ({ children }: Props) => {
+export const SectionTitle = ({ children }: { children: ReactNode }) => {
 	return (
 		<StyledSection>
 			<h3>{children}</h3>

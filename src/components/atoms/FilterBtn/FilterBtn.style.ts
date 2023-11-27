@@ -5,7 +5,7 @@ export const FilterButtonStyle = styled.button`
     justify-content: space-around;
     float: right;
     height: 40px;
-    margin: 10px 0 10px 10px;
+    margin: 15px 0 15px 0;
     padding: 10px;
     line-height: 20px;
     border: none;

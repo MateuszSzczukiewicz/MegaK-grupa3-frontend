@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
+export const SearchBarStyle = styled.div`
+`
 export const SearchInputStyle = styled.input`
-    width: 350px;
+  float: left;
+    width: 80%;
     height: 40px;
     margin: 15px 0;
     padding-left: 5px;
@@ -11,6 +14,9 @@ export const SearchInputStyle = styled.input`
     background-color: ${({ theme }) => theme.color.grey7};
       &:focus{
         outline: none;
+      }
+      ${({ theme }) => theme.mq.sm} {
+        width: 350px;
       }
 `;
 export const LoupDivStyle = styled.div`

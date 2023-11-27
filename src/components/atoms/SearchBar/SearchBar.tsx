@@ -1,11 +1,11 @@
-import {LoupDivStyle, SearchInputStyle} from "./SearchBar.style";
+import {SearchBarStyle, LoupDivStyle, SearchInputStyle} from "./SearchBar.style";
 import {MagnifierIcon} from "../../../assets/icons/MagnifierIcon";
 
-export const  SearchBar = () =>{
+export const  SearchBar = ({setSearchBarValue}) =>{
     return(
-        <>
+        <SearchBarStyle>
             <LoupDivStyle><MagnifierIcon/></LoupDivStyle>
-            <SearchInputStyle type="text" placeholder="Szukaj"/>
-        </>
+            <SearchInputStyle onChange={(e)=>setSearchBarValue(e.target.value)} type="text" placeholder="Szukaj"/>
+        </SearchBarStyle>
     )
 }

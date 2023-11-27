@@ -34,6 +34,7 @@ export const StudentsPageMain = ({simplified,studentsList}:Props) =>{
             name={student.name}
             surname={student.surname}
             reservationDate={student.reservationDate}
+            gitHubUserName={student.gitHubUserName}
         /> : null
     })
 

@@ -9,10 +9,11 @@ type Props = {
     name:string;
     surname:string;
     reservationDate:string;
+    gitHubUserName?:string;
     simplified:boolean;
 }
 
-export const StudentRow = ({name,surname,reservationDate, simplified}:Props) => {
+export const StudentRow = ({name,surname,reservationDate,gitHubUserName, simplified}:Props) => {
 
     const [showInfo, setShowInfo] = useState(false);
 
@@ -20,7 +21,12 @@ export const StudentRow = ({name,surname,reservationDate, simplified}:Props) => 
 
     return (
             <StudentRowStyle>
-                <StudentRowInfo name={name} surname={surname} reservationDate={simplified ? null : reservationDate}/>
+                <StudentRowInfo
+                    name={name}
+                    surname={surname}
+                    img={gitHubUserName?`https://github.com/${gitHubUserName}.png`:null}
+                    reservationDate={simplified ? null : reservationDate}
+                />
 
                 <ButtonsStyle>
                     {simplified ?

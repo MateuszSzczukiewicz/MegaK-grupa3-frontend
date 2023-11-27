@@ -16,6 +16,7 @@ export const ImgStyle = styled.img`
     width: 50px;
     height: 50px;
     margin-left: 30px;
+    margin-right: 15px;
     border-radius: 100%;
 `
 export const BStyle = styled.p`

@@ -8,7 +8,7 @@ export const StudentsComponent = () => {
     const [simplified, setSimplified] = useState(true);
 
     const SampleData = [
-        {id:123,name:"Jan",surname:"Kowalski",reservationDate:'1.11.2024'},
+        {id:123,name:"Jan",surname:"Kowalski",reservationDate:'1.11.2024',gitHubUserName:"Ami777"},
         {id:124,name:"Paweł",surname:"Nowacki",reservationDate:'29.12.2023'},
         {id:125,name:"Jakub",surname:"Wiśniewski",reservationDate:'14.1.2024'},
         {id:126,name:"Jacek",surname:"Nowak",reservationDate:'1.11.2024'},

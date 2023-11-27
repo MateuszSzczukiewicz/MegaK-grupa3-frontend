@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StudentsPageFooterStyle = styled.footer `
     float: right;
     display: flex;
-    margin-top: 20px;
+    margin: 20px 0;
 `
 export const ButtonStyle = styled.button `
     margin: auto 5px;

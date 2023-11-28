@@ -20,11 +20,13 @@ export const GradeStarsSection = styled.div`
 	svg {
 		height: 20px;
 		width: 20px;
+		stroke: ${({ theme }) => theme.color.grey1};
 	}
 `;
 
 export const Star = styled.div<{ $red?: boolean }>`
 	svg {
 		fill: ${({ theme, $red }) => ($red ? theme.color.red1 : theme.color.grey1)};
+		stroke: ${({ theme, $red }) => ($red ? theme.color.red1 : theme.color.grey1)};
 	}
 `;

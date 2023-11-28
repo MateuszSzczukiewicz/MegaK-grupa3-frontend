@@ -31,7 +31,7 @@ export const theme = {
 			lg: '18px',
 			xl: '20px',
 			xxl: '22px',
-			xxxl: '22px',
+			xxxl: '24px',
 		},
 		weight: {
 			regular: '400',

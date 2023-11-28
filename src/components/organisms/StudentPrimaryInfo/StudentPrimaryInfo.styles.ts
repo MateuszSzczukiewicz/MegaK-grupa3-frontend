@@ -11,6 +11,11 @@ export const StudentPrimaryInfoSection = styled.section`
 	padding-top: 30px;
 	padding-bottom: 9px;
 	background-color: ${({ theme }) => theme.color.grey6};
+  
+  button {
+    width: 200px;
+    margin: 0 0 14px;
+  }
 
   ${({ theme }) => theme.mq.md} {
     width: 250px;

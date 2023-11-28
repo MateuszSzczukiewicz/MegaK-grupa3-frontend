@@ -11,7 +11,7 @@ export const SearchInputStyle = styled.input`
     border: none;
     font-size: ${({ theme }) => theme.font.size.md};
     color: ${({ theme }) => theme.color.grey4};
-    background-color: ${({ theme }) => theme.color.grey7};
+    background-color: ${({ theme }) => theme.color.grey8};
       &:focus{
         outline: none;
       }
@@ -26,5 +26,5 @@ export const LoupDivStyle = styled.div`
     padding: 5px 10px;
     line-height: 40px;
     cursor: pointer;
-    background-color: ${({ theme }) => theme.color.grey7};
+    background-color: ${({ theme }) => theme.color.grey8};
 `;

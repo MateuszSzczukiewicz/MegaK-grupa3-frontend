@@ -10,6 +10,6 @@ export const FilterButtonStyle = styled.button`
     line-height: 20px;
     border: none;
     cursor: pointer;
-    background-color: ${({ theme }) => theme.color.grey7};
+    background-color: ${({ theme }) => theme.color.grey8};
     color: ${({ theme }) => theme.color.grey5};
 `

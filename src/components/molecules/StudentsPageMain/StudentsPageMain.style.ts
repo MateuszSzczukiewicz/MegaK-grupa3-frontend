@@ -6,7 +6,7 @@ export const StudentsMainStyle = styled.main`
 `
 export const HrStyle = styled.hr`
     border-bottom: none;
-    border-color: ${({ theme }) => theme.color.grey8};
+    border-color: ${({ theme }) => theme.color.grey7};
 `;
 
 export const TopStyle = styled.div`

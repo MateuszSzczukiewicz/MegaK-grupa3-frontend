@@ -1,5 +1,5 @@
-import { Header } from '../components/atoms/Header/Header.tsx';
+import { Filtration } from '../components/organisms/Filtration/Filtration.tsx';
 
 export const Homepage = () => {
-	return <Header />;
+	return <Filtration />;
 };

@@ -1,17 +1,10 @@
 import { StudentsHeaderStyle } from './StudentsPageHeader.style';
-import { Dispatch, SetStateAction } from "react";
 import {StudentsPageHeaderBtn} from "../../atoms/StudentsPageHeaderBtn/StudentsPageHeaderBtn";
+import {StudentsPageHeaderPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
-type Props = {
-    simplified:boolean;
-    setSimplified:Dispatch<SetStateAction<boolean>>;
-}
-
-export const StudentsPageHeader = ({simplified, setSimplified}:Props) => {
-    return (
+export const StudentsPageHeader = ({ simplified, setSimplified }:StudentsPageHeaderPropsType) => (
         <StudentsHeaderStyle>
-            <StudentsPageHeaderBtn active={simplified} context={'Dostępni kursanci'} setActive={()=>setSimplified(true)}/>
-            <StudentsPageHeaderBtn active={!simplified} context={'Do rozmowy'} setActive={()=>setSimplified(false)}/>
+            <StudentsPageHeaderBtn active={simplified} text={'Dostępni kursanci'} setActive={()=>setSimplified(true)}/>
+            <StudentsPageHeaderBtn active={!simplified} text={'Do rozmowy'} setActive={()=>setSimplified(false)}/>
         </StudentsHeaderStyle>
-    )
-}
+)

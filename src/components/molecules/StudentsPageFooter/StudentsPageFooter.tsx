@@ -1,17 +1,9 @@
-import {Dispatch, SetStateAction} from "react";
 import {ChevronDownIcon} from "../../../assets/icons/ChevronDownIcon";
 import {ButtonStyle, RowsCounterStyle, SelectStyle, StudentsPageFooterStyle} from "./StudentsPageFooter.style";
+import {StudentsPageFooterPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
 
-type Props = {
-    rowsLimit:number;
-    setRowsLimit:Dispatch<SetStateAction<number>>;
-    LengthOfStudentsList:number;
-    activePage:number;
-    setActivePage:Dispatch<SetStateAction<number>>;
-}
-
-export const StudentsPageFooter = ({rowsLimit,setRowsLimit,LengthOfStudentsList,activePage,setActivePage}:Props) => {
+export const StudentsPageFooter = ({ rowsLimit, setRowsLimit, LengthOfStudentsList, activePage, setActivePage }:StudentsPageFooterPropsType) => {
 
     const pageHandler = (value:-1|1) => {
         setActivePage(prevState => prevState + value);

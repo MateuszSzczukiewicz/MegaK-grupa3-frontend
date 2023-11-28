@@ -4,13 +4,10 @@ import {SearchBar} from "../../atoms/SearchBar/SearchBar";
 import {FilterBtn} from "../../atoms/FilterBtn/FilterBtn";
 import {useEffect, useState} from "react";
 import {StudentsPageFooter} from "../StudentsPageFooter/StudentsPageFooter";
+import {StudentsPageMainPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
-type Props ={
-    simplified:boolean;
-    studentsList:any;
-}
 
-export const StudentsPageMain = ({simplified,studentsList}:Props) =>{
+export const StudentsPageMain = ({simplified,studentsList}:StudentsPageMainPropsType) =>{
 
     const [rowsLimit, setRowsLimit] = useState<number>(5);
     const [activePage, setActivePage] = useState<number>(0);

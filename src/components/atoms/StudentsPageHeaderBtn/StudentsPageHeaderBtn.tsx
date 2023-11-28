@@ -1,16 +1,7 @@
 import {ActiveHeaderBtnStyle, HeaderBtnStyle} from "./StudentsPageHeaderBtn.style";
+import {StudentsPageHeaderBtnPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
-type Props = {
-    active:boolean;
-    context:string;
-    setActive:()=>void;
-}
-
-export const StudentsPageHeaderBtn = ({ active, context,setActive }:Props) => {
-
-    return (
-        !active ?
-            <HeaderBtnStyle onClick={setActive}> {context} </HeaderBtnStyle> :
-            <ActiveHeaderBtnStyle onClick={setActive}> {context} </ActiveHeaderBtnStyle>
-    )
-}
+export const StudentsPageHeaderBtn = ({ active, text, setActive }:StudentsPageHeaderBtnPropsType) => (
+        !active ? <HeaderBtnStyle onClick={setActive}> {text} </HeaderBtnStyle> :
+            <ActiveHeaderBtnStyle onClick={setActive}> {text} </ActiveHeaderBtnStyle>
+)

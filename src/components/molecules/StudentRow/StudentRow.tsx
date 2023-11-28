@@ -4,16 +4,10 @@ import {StudentRowInfo} from "../../atoms/StudentRowInfo/StudentRowInfo";
 import {ChevronDownIcon} from "../../../assets/icons/ChevronDownIcon";
 import {useState} from "react";
 import {StudentRatings} from "../StudentRatings/StudentRatings";
+import {StudentRowPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
-type Props = {
-    name:string;
-    surname:string;
-    reservationDate:string;
-    gitHubUserName?:string;
-    simplified:boolean;
-}
 
-export const StudentRow = ({name,surname,reservationDate,gitHubUserName, simplified}:Props) => {
+export const StudentRow = ({name,surname,reservationDate,gitHubUserName, simplified}:StudentRowPropsType) => {
 
     const [showInfo, setShowInfo] = useState(false);
 
@@ -30,12 +24,12 @@ export const StudentRow = ({name,surname,reservationDate,gitHubUserName, simplif
 
                 <ButtonsStyle>
                     {simplified ?
-                        <PrimaryButton context={'Zarezerwój rozmowę'}/>
+                        <PrimaryButton text={'Zarezerwuj rozmowę'}/>
                         :
                         <>
-                        <PrimaryButton context={'Pokaż CV'}/>
-                        <PrimaryButton context={'Brak zainteresowania'}/>
-                        <PrimaryButton context={'Zatrudniony'}/>
+                        <PrimaryButton text={'Pokaż CV'}/>
+                        <PrimaryButton text={'Brak zainteresowania'}/>
+                        <PrimaryButton text={'Zatrudniony'}/>
                         </>
                     }
                     <ArrowStyle style={arrowStyle} onClick={()=>setShowInfo(prevState => !prevState)}>

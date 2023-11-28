@@ -1,9 +1,7 @@
 import {StudentRating} from "../../atoms/StudentRating/StudentRating";
 import {StudentRatingsStyle} from "./StudentRatings.style";
 
-export const StudentRatings = () => {
-
-    return(
+export const StudentRatings = () => (
         <StudentRatingsStyle>
             <StudentRating title={"Ocena przejścia kursu"} ratingValue={5}/>
             <StudentRating title={"Ocana aktywności i zaangażowania na kursie"} ratingValue={3}/>
@@ -16,5 +14,4 @@ export const StudentRatings = () => {
             <StudentRating title={"Zgody na odbycie bezpłatnych praktyk/stażu na początek"} ratingValue={"TAK"}/>
             <StudentRating title={"Komercyjne doświadczenie w programowaniu"} ratingValue={"6 miesięcy"}/>
         </StudentRatingsStyle>
-    )
-}
+)

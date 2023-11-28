@@ -1,13 +1,7 @@
 import {BStyle, StudentRowInfoStyle, DateStyle, ImgStyle, NameStyle} from "./StudentRowInfo.style";
+import {StudentRowInfoPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
-type Props = {
-    name:string;
-    surname:string;
-    img:string|null;
-    reservationDate?:string|null;
-}
-
-export const StudentRowInfo = ({ name, surname,img, reservationDate }:Props) =>{
+export const StudentRowInfo = ({ name, surname,img, reservationDate }:StudentRowInfoPropsType) =>{
 
     return(
         <StudentRowInfoStyle>

@@ -4,6 +4,9 @@ import {FilterButtonStyle} from "./FilterBtn.style";
 export const FilterBtn = () => {
 
     return(
-        <FilterButtonStyle><Funnelcon/><span>Filtrowanie</span></FilterButtonStyle>
+        <FilterButtonStyle>
+            <Funnelcon/>
+            <span>Filtrowanie</span>
+        </FilterButtonStyle>
     )
 }

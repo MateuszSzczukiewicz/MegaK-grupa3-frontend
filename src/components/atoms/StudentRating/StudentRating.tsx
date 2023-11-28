@@ -1,13 +1,8 @@
 import {BStyle, RatingValueStyle, StudentRatingStyle, TitleStyle} from "./StudentRating.style";
+import {StudentRatingPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
 
-type Stars = 1|2|3|4|5
 
-type Props = {
-    title:string;
-    ratingValue?:Stars|string;
-}
-
-export const StudentRating = ({title,ratingValue}:Props) =>{
+export const StudentRating = ({ title, ratingValue }:StudentRatingPropsType) =>{
 
     return(
         <StudentRatingStyle>

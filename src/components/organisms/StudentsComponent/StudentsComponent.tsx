@@ -2,6 +2,7 @@ import { StudentsComponentDiv } from './StudentsComponent.styles.ts';
 import {useEffect, useState} from "react";
 import {StudentsPageHeader} from "../../molecules/StudentsPageHeader/StudentsPageHeader";
 import {StudentsPageMain} from "../../molecules/StudentsPageMain/StudentsPageMain";
+import {GotAJob} from "../../molecules/GotAJob/GotAJob";
 
 export const StudentsComponent = () => {
 
@@ -30,9 +31,12 @@ export const StudentsComponent = () => {
 
 
     return (
+        <>
         <StudentsComponentDiv>
             <StudentsPageHeader simplified={simplified} setSimplified={setSimplified}/>
             <StudentsPageMain simplified={simplified} studentsList={studentsList}/>
         </StudentsComponentDiv>
+        <GotAJob/>
+        </>
     )
 }

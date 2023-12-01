@@ -3,22 +3,30 @@ import styled from 'styled-components';
 export const StudentAchievementsWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	min-width: 500px;
-	max-width: 1200px;
-	margin-left: 4px;
+	max-width: 1300px;
+
+	${({ theme }) => theme.mq.xl} {
+		margin-right: 100px;
+	}
 `;
 
 export const EmploymentExpectations = styled.div`
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	margin: 0 4px;
+	> div {
+		padding-left: 25px;
+	}
 
-	> div:first-child {
-		padding-left: 27px;
+	${({ theme }) => theme.mq.lg} {
+		flex-direction: row;
 	}
 `;
 
 export const Grades = styled(EmploymentExpectations)`
 	> div {
-		width: 25%;
+		${({ theme }) => theme.mq.lg} {
+			width: 25%;
+		}
 	}
 `;

@@ -1,12 +1,13 @@
+import { ReactNode } from 'react';
 import { EmploymentExpectationSection } from './EmploymentExpectation.styles';
-import * as React from 'react';
 
-interface Props {
+export const EmploymentExpectation = ({
+	expectationName,
+	children,
+}: {
 	expectationName: string;
-	children: React.ReactNode;
-}
-
-export const GradeOrEmplExpectElement = ({ expectationName, children }: Props) => {
+	children: ReactNode;
+}) => {
 	return (
 		<EmploymentExpectationSection>
 			<p>{expectationName}</p>

@@ -1,10 +1,6 @@
-import * as React from 'react';
 import { StyledTextArea } from './TextArea.styles';
+import { ReactNode } from 'react';
 
-interface Props {
-	children: React.ReactNode;
-}
-
-export const TextArea = ({ children }: Props) => {
+export const TextArea = ({ children }: { children: ReactNode }) => {
 	return <StyledTextArea>{children}</StyledTextArea>;
 };

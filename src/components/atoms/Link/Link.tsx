@@ -1,15 +1,11 @@
 import { PaperClipIcon } from '../../../assets/icons/PaperClipIcon';
 import { StyledLink } from './Link.styles';
 
-interface Props {
-	link: string;
-}
-
-export const Link = (props: Props) => {
+export const Link = ({ link }: { link: string }) => {
 	return (
-		<StyledLink href={props.link}>
+		<StyledLink href={link}>
 			<PaperClipIcon />
-			{props.link}
+			{link}
 		</StyledLink>
 	);
 };

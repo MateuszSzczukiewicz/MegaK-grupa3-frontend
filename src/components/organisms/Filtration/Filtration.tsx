@@ -1,4 +1,11 @@
-import { ButtonsGroup, StyledH2, StyledHeader, Wrapper } from './Filtration.styles.ts';
+import {
+	ButtonsGroup,
+	StyledBackground,
+	StyledFiltration,
+	StyledH2,
+	StyledHeader,
+	Wrapper,
+} from './Filtration.styles.ts';
 import { ClearButton } from '../../atoms/ClearButton/ClearButton.tsx';
 import { GradeFilter } from '../../molecules/GradeFilter/GradeFilter.tsx';
 import { PreferredPlace } from '../../molecules/PreferedPlace/PreferredPlace.tsx';
@@ -9,26 +16,29 @@ import { CommercialExperience } from '../../molecules/CommercialExperience/Comme
 import { CancelButton } from '../../atoms/CancelButton/CancelButton.tsx';
 import { ResultsButton } from '../../atoms/ResultsButton/ResultsButton.tsx';
 
-export const Filtration = () => {
+export const Filtration = ({ toggleFilterVisibile }) => {
 	return (
 		<Wrapper>
-			<StyledHeader>
-				<StyledH2>Filtrowanie</StyledH2>
-				<ClearButton />
-			</StyledHeader>
-			<GradeFilter title="Ocena przejścia kursu" />
-			<GradeFilter title="Ocena aktywności i zaangażowania na kursie" />
-			<GradeFilter title="Ocena kodu w projekcie własnym" />
-			<GradeFilter title="Ocena pracy w zespole Scrum" />
-			<PreferredPlace />
-			<ContractType />
-			<ExpectedSalary />
-			<UnpaidConsent />
-			<CommercialExperience />
-			<ButtonsGroup>
-				<CancelButton />
-				<ResultsButton>Pokaż wyniki</ResultsButton>
-			</ButtonsGroup>
+			<StyledBackground onClick={toggleFilterVisibile} />
+			<StyledFiltration>
+				<StyledHeader>
+					<StyledH2>Filtrowanie</StyledH2>
+					<ClearButton toggleFilterVisibile={toggleFilterVisibile} />
+				</StyledHeader>
+				<GradeFilter title="Ocena przejścia kursu" />
+				<GradeFilter title="Ocena aktywności i zaangażowania na kursie" />
+				<GradeFilter title="Ocena kodu w projekcie własnym" />
+				<GradeFilter title="Ocena pracy w zespole Scrum" />
+				<PreferredPlace />
+				<ContractType />
+				<ExpectedSalary />
+				<UnpaidConsent />
+				<CommercialExperience />
+				<ButtonsGroup>
+					<CancelButton toggleFilterVisibile={toggleFilterVisibile} />
+					<ResultsButton toggleFilterVisibile={toggleFilterVisibile} title="Pokaż wyniki" />
+				</ButtonsGroup>
+			</StyledFiltration>
 		</Wrapper>
 	);
 };

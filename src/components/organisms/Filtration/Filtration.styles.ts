@@ -1,11 +1,28 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-	margin: auto;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgba(0, 0, 0, 0.8);
+`;
+
+export const StyledBackground = styled.div`
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+`;
+
+export const StyledFiltration = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 512px;
-	height: 806px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	background-color: ${({ theme }) => theme.color.black};
 	padding: 20px;
 `;

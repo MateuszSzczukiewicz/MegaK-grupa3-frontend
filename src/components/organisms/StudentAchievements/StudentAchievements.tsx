@@ -6,47 +6,47 @@ import {
 } from './StudentAchievements.styles';
 import { TextArea } from '../../atoms/TextArea/TextArea';
 import { Link } from '../../atoms/Link/Link';
-import { GradeOrEmplExpectElement } from '../../molecules/EmploymentExpectation/GradeOrEmplExpectElement';
-import { GradeStars } from '../../molecules/GradeStars/GradeStars';
+import { EmploymentExpectation } from '../../molecules/EmploymentExpectation/EmploymentExpectation.tsx';
+import { GradeStars } from '../../atoms/GradeStars/GradeStars';
 
 export const StudentAchievements = () => {
 	return (
 		<StudentAchievementsWrapper>
 			<SectionTitle>Oceny</SectionTitle>
 			<Grades>
-				<GradeOrEmplExpectElement expectationName="Ocena przejścia kursu">
-					<GradeStars grade={4}></GradeStars>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Ocena aktywności i zaangażowania na kursie">
-					<GradeStars grade={4}></GradeStars>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Ocena kodu w projekcie własnym">
-					<GradeStars grade={4}></GradeStars>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Ocena pracy w zespole Scrum">
-					<GradeStars grade={4}></GradeStars>
-				</GradeOrEmplExpectElement>
+				<EmploymentExpectation expectationName="Ocena przejścia kursu">
+					<GradeStars gradeNumber={1}></GradeStars>
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Ocena aktywności i zaangażowania na kursie">
+					<GradeStars gradeNumber={2}></GradeStars>
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Ocena kodu w projekcie własnym">
+					<GradeStars gradeNumber={3}></GradeStars>
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Ocena pracy w zespole Scrum">
+					<GradeStars gradeNumber={4}></GradeStars>
+				</EmploymentExpectation>
 			</Grades>
 			<SectionTitle>Oczekiwanie w stosunku do zatrudnienia</SectionTitle>
 			<EmploymentExpectations>
-				<GradeOrEmplExpectElement expectationName="Preferowane miejsce pracy">
+				<EmploymentExpectation expectationName="Preferowane miejsce pracy">
 					<p>Biuro</p>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Docelowe miasto, gdzie chce pracować kandydat">
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Docelowe miasto, gdzie chce pracować kandydat">
 					<p>Warszawa</p>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Oczekiwany typ kontraktu">
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Oczekiwany typ kontraktu">
 					<p>Umowa o pracę</p>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Oczekiwane wynagrodzenie miesięczne netto">
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Oczekiwane wynagrodzenie miesięczne netto">
 					<p>5000zł</p>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Zgoda na odbycie bezpłatnych praktyk/stażu na początek">
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Zgoda na odbycie bezpłatnych praktyk/stażu na początek">
 					<p>TAK</p>
-				</GradeOrEmplExpectElement>
-				<GradeOrEmplExpectElement expectationName="Komercyjne doświadczenie w programowaniu">
+				</EmploymentExpectation>
+				<EmploymentExpectation expectationName="Komercyjne doświadczenie w programowaniu">
 					<p>NIE</p>
-				</GradeOrEmplExpectElement>
+				</EmploymentExpectation>
 			</EmploymentExpectations>
 			<SectionTitle>Edukacja</SectionTitle>
 			<TextArea>

@@ -1,3 +1,5 @@
-import {PrimaryButtonStyle} from "./PrimaryButton.style";
+import { PrimaryButtonStyles } from './PrimaryButton.styles.ts';
 
-export const PrimaryButton = ({text}:{text:string}) => <PrimaryButtonStyle>{text}</PrimaryButtonStyle>
+export const PrimaryButton = ({ text }: { text: string }) => (
+	<PrimaryButtonStyles>{text}</PrimaryButtonStyles>
+);

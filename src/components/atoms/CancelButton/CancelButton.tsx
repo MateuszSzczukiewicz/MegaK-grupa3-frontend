@@ -1,5 +1,5 @@
 import { StyledButton } from './CancelButton.styles.ts';
 
-export const CancelButton = () => {
-	return <StyledButton>Anuluj</StyledButton>;
+export const CancelButton = ({ toggleFilterVisibile }) => {
+	return <StyledButton onClick={toggleFilterVisibile}>Anuluj</StyledButton>;
 };

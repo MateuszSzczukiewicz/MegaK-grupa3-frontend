@@ -7,9 +7,7 @@ import { GitHubIcon } from '../../../assets/icons/GitHubIcon';
 export const StudentDetails = () => {
 	return (
 		<>
-			<StyledImgWrapper>
-				<img alt=""></img>
-			</StyledImgWrapper>
+			<StyledImgWrapper></StyledImgWrapper>
 			<StyledH1>Jan Kowalski</StyledH1>
 			<StyledLink>
 				<div>

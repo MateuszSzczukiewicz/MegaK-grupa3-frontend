@@ -1,15 +1,40 @@
-import {BStyle, StudentRowInfoStyle, DateStyle, ImgStyle, NameStyle} from "./StudentRowInfo.style";
-import {StudentRowInfoPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
+import {
+	BStyle,
+	StudentRowInfoStyles,
+	DateStyle,
+	ImgStyle,
+	NameStyle,
+	StyledButton,
+} from './StudentRowInfo.styles.ts';
+import { StudentRowInfoPropsType } from '../../../types/StudentsPagePropsTypes/StudentsPageProps.types';
+import { useNavigate } from 'react-router-dom';
+import BlankUser from '../../../assets/images/blank_user.png';
 
-export const StudentRowInfo = ({ name, surname,img, reservationDate }:StudentRowInfoPropsType) =>{
+export const StudentRowInfo = ({
+	name,
+	surname,
+	img,
+	reservationDate,
+}: StudentRowInfoPropsType) => {
+	const navigate = useNavigate();
 
-    return(
-        <StudentRowInfoStyle>
-            {reservationDate ? <DateStyle>Rezerwacja do: <br/> <BStyle> {reservationDate} r.</BStyle></DateStyle>: null }
-            <div>
-                {reservationDate ? <ImgStyle src={img??'https://freeiconshop.com/wp-content/uploads/edd/person-outline-filled.png'} alt="user-github-logo"/>:null}
-                <NameStyle> {name} {surname} </NameStyle>
-            </div>
-        </StudentRowInfoStyle>
-    )
-}
+	const handleNavigate = () => {
+		navigate('/student');
+	};
+
+	return (
+		<StudentRowInfoStyles>
+			{reservationDate ? (
+				<DateStyle>
+					Rezerwacja do: <br /> <BStyle> {reservationDate} r.</BStyle>
+				</DateStyle>
+			) : null}
+			<StyledButton onClick={handleNavigate}>
+				{reservationDate ? <ImgStyle src={img ?? BlankUser} alt="user-github-logo" /> : null}
+				<NameStyle>
+					{name} {surname}
+				</NameStyle>
+			</StyledButton>
+		</StudentRowInfoStyles>
+	);
+};

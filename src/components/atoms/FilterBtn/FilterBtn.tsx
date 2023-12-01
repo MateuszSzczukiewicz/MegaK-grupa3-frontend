@@ -1,12 +1,12 @@
-import {Funnelcon} from "../../../assets/icons/Funnelcon";
-import {FilterButtonStyle} from "./FilterBtn.style";
+import { useState } from 'react';
+import { Funnelcon } from '../../../assets/icons/Funnelcon';
+import { FilterButtonStyle } from './FilterBtn.styles.ts';
 
-export const FilterBtn = () => {
-
-    return(
-        <FilterButtonStyle>
-            <Funnelcon/>
-            <span>Filtrowanie</span>
-        </FilterButtonStyle>
-    )
-}
+export const FilterBtn = ({ toggleFilterVisibile }) => {
+	return (
+		<FilterButtonStyle onClick={toggleFilterVisibile}>
+			<Funnelcon />
+			<span>Filtrowanie</span>
+		</FilterButtonStyle>
+	);
+};

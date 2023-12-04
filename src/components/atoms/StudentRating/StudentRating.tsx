@@ -4,9 +4,9 @@ import {
 	StudentRatingStyles,
 	TitleStyle,
 } from './StudentRating.styles.ts';
-import { StudentRatingPropsType } from '../../../types/StudentsPagePropsTypes/StudentsPageProps.types';
+import { StudentSingleRatingType } from '../../../types/StudentsPageProps.types.ts';
 
-export const StudentRating = ({ title, ratingValue }: StudentRatingPropsType) => {
+export const StudentRating = ({ title, ratingValue }: StudentSingleRatingType) => {
 	return (
 		<StudentRatingStyles>
 			<TitleStyle>{title}</TitleStyle>

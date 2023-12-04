@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { MouseEventHandler } from 'react';
 import { Funnelcon } from '../../../assets/icons/Funnelcon';
 import { FilterButtonStyle } from './FilterBtn.styles.ts';
 
-export const FilterBtn = ({ toggleFilterVisibile }) => {
+export const FilterBtn = ({ toggleFilterVisible }: { toggleFilterVisible: MouseEventHandler }) => {
 	return (
-		<FilterButtonStyle onClick={toggleFilterVisibile}>
+		<FilterButtonStyle onClick={toggleFilterVisible}>
 			<Funnelcon />
 			<span>Filtrowanie</span>
 		</FilterButtonStyle>

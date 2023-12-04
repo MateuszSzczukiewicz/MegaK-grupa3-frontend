@@ -1,6 +1,6 @@
 import { StudentsHeaderStyle } from './StudentsPageHeader.styles.ts';
 import { StudentsPageHeaderBtn } from '../../atoms/StudentsPageHeaderBtn/StudentsPageHeaderBtn';
-import { StudentsPageHeaderPropsType } from '../../../types/StudentsPagePropsTypes/StudentsPageProps.types';
+import { StudentsPageHeaderPropsType } from '../../../types/StudentsPageProps.types.ts';
 
 export const StudentsPageHeader = ({ simplified, setSimplified }: StudentsPageHeaderPropsType) => (
 	<StudentsHeaderStyle>

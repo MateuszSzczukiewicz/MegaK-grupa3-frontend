@@ -5,7 +5,7 @@ import {
 	SelectStyle,
 	StudentsPageFooterStyles,
 } from './StudentsPageFooter.styles.ts';
-import { StudentsPageFooterPropsType } from '../../../types/StudentsPagePropsTypes/StudentsPageProps.types';
+import { StudentsPageFooterPropsType } from '../../../types/StudentsPageProps.types.ts';
 
 export const StudentsPageFooter = ({
 	rowsLimit,

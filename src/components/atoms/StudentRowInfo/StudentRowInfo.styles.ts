@@ -7,7 +7,7 @@ export const StudentRowInfoStyles = styled.div`
 	margin: 0;
 	width: 100%;
 	${({ theme }) => theme.mq.sm} {
-		width: 400px;
+		width: auto;
 		margin: 10px 0 0 25px;
 	}
 `;

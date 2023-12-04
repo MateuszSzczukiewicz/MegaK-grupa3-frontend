@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const StudentsPageFooterStyles = styled.footer`
+	color: ${({ theme }) => theme.color.white};
 	float: right;
 	display: flex;
 	margin: 20px 0;
 `;
+
 export const ButtonStyle = styled.button`
 	margin: auto 5px;
 	width: 25px;
@@ -17,6 +19,7 @@ export const ButtonStyle = styled.button`
 		cursor: auto;
 	}
 `;
+
 export const SelectStyle = styled.select`
 	height: 25px;
 	margin: auto 5px;
@@ -26,6 +29,7 @@ export const SelectStyle = styled.select`
 		outline: none;
 	}
 `;
+
 export const RowsCounterStyle = styled.span`
 	margin: 0 15px;
 `;

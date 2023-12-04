@@ -6,14 +6,14 @@ import {
 	NameStyle,
 	StyledButton,
 } from './StudentRowInfo.styles.ts';
-import { StudentRowInfoPropsType } from '../../../types/StudentsPagePropsTypes/StudentsPageProps.types';
 import { useNavigate } from 'react-router-dom';
 import BlankUser from '../../../assets/images/blank_user.png';
+import { StudentRowInfoPropsType } from '../../../types/StudentsPageProps.types.ts';
 
 export const StudentRowInfo = ({
-	name,
-	surname,
-	img,
+	firstName,
+	lastName,
+	gitHubUserName,
 	reservationDate,
 }: StudentRowInfoPropsType) => {
 	const navigate = useNavigate();
@@ -30,9 +30,11 @@ export const StudentRowInfo = ({
 				</DateStyle>
 			) : null}
 			<StyledButton onClick={handleNavigate}>
-				{reservationDate ? <ImgStyle src={img ?? BlankUser} alt="user-github-logo" /> : null}
+				{reservationDate ? (
+					<ImgStyle src={gitHubUserName ?? BlankUser} alt="user-github-logo" />
+				) : null}
 				<NameStyle>
-					{name} {surname}
+					{firstName} {lastName}
 				</NameStyle>
 			</StyledButton>
 		</StudentRowInfoStyles>

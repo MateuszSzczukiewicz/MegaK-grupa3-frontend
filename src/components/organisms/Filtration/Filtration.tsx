@@ -4,7 +4,6 @@ import {
 	StyledFiltration,
 	StyledH2,
 	StyledHeader,
-	Wrapper,
 } from './Filtration.styles.ts';
 import { ClearButton } from '../../atoms/ClearButton/ClearButton.tsx';
 import { GradeFilter } from '../../molecules/GradeFilter/GradeFilter.tsx';
@@ -15,15 +14,16 @@ import { UnpaidConsent } from '../../molecules/UnpaidConsent/UnpaidConsent.tsx';
 import { CommercialExperience } from '../../molecules/CommercialExperience/CommercialExperience.tsx';
 import { CancelButton } from '../../atoms/CancelButton/CancelButton.tsx';
 import { ResultsButton } from '../../atoms/ResultsButton/ResultsButton.tsx';
+import { MouseEventHandler } from 'react';
 
-export const Filtration = ({ toggleFilterVisibile }) => {
+export const Filtration = ({ toggleFilterVisible }: { toggleFilterVisible: MouseEventHandler }) => {
 	return (
-		<Wrapper>
-			<StyledBackground onClick={toggleFilterVisibile} />
+		<>
+			<StyledBackground onClick={toggleFilterVisible} />
 			<StyledFiltration>
 				<StyledHeader>
 					<StyledH2>Filtrowanie</StyledH2>
-					<ClearButton toggleFilterVisibile={toggleFilterVisibile} />
+					<ClearButton toggleFilterVisible={toggleFilterVisible} />
 				</StyledHeader>
 				<GradeFilter title="Ocena przejścia kursu" />
 				<GradeFilter title="Ocena aktywności i zaangażowania na kursie" />
@@ -35,10 +35,10 @@ export const Filtration = ({ toggleFilterVisibile }) => {
 				<UnpaidConsent />
 				<CommercialExperience />
 				<ButtonsGroup>
-					<CancelButton toggleFilterVisibile={toggleFilterVisibile} />
-					<ResultsButton toggleFilterVisibile={toggleFilterVisibile} title="Pokaż wyniki" />
+					<CancelButton toggleFilterVisibile={toggleFilterVisible} />
+					<ResultsButton toggleFilterVisibile={toggleFilterVisible} title="Pokaż wyniki" />
 				</ButtonsGroup>
 			</StyledFiltration>
-		</Wrapper>
+		</>
 	);
 };

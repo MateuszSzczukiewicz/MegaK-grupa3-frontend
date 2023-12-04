@@ -1,5 +1,5 @@
 import { ActiveHeaderBtnStyle, HeaderBtnStyle } from './StudentsPageHeaderBtn.styles.ts';
-import { StudentsPageHeaderBtnPropsType } from '../../../types/StudentsPagePropsTypes/StudentsPageProps.types';
+import { StudentsPageHeaderBtnPropsType } from '../../../types/StudentsPageProps.types.ts';
 
 export const StudentsPageHeaderBtn = ({
 	active,

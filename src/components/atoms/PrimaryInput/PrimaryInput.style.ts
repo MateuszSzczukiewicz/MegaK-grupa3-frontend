@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const PrimaryInputStyle = styled.input`
-  width: 300px;
   height: 40px;
   margin: 10px;
   padding-left: 5px;
@@ -11,5 +10,8 @@ export const PrimaryInputStyle = styled.input`
   background-color: ${({ theme }) => theme.color.grey8};
   &:focus{
     outline: none;
+  }
+  ${({ theme }) => theme.mq.sm}{
+    width: 300px;
   }
 `

@@ -3,6 +3,7 @@ import { Homepage } from './Homepage.tsx';
 import { LoginPage } from './LoginPage.tsx';
 import { StudentPage } from './StudentPage';
 import { StudentsPage } from "./StudentsPage";
+import {StudentProfilePage} from "./StudentProfilePage";
 
 export const Root = () => {
 	return (
@@ -11,6 +12,7 @@ export const Root = () => {
 			<Route path="/login" element={<LoginPage />} />
       		<Route path="/student" element={<StudentPage />} />
 			<Route path="/students" element={ <StudentsPage /> }/>
+			<Route path="/profile" element={ <StudentProfilePage /> }/>
 		</Routes>
 	);
 };

@@ -1,3 +1,3 @@
-import {StudentProfile} from "../components/molecules/StudentProfile/StudentProfile";
+import {StudentProfile} from "../components/organisms/StudentProfile/StudentProfile";
 
 export const StudentProfilePage = () => <StudentProfile/>

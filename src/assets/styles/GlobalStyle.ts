@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  header, main, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, li, a, label, input, select, button, span {
+  header, main, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, li, a, label, input, select, button, span, textarea, label {
     font-family: "Catamaran", sans-serif;
     font-weight: ${({ theme }) => theme.font.weight.regular};
   }

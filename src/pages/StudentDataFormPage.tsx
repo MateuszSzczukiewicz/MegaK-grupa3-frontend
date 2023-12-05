@@ -5,7 +5,7 @@ export const StudentDataFormPage = () => {
 	return (
 		<>
 			<MainTemplate />
-			<StudentDataFormTemplate />
+			<StudentDataFormTemplate id={'123'} />
 		</>
 	);
 };

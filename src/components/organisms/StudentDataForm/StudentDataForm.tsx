@@ -1,7 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
 import { StyledInput } from '../../molecules/LoginForm/LoginForm.styles';
 import { PrimaryButton } from '../../atoms/PrimaryButton/PrimaryButton';
-import { StudentFormWrapper, StyledSelect, StyledTextArea } from './StudentDataFormTemplate.styles';
+import { StudentFormWrapper, StyledSelect, StyledTextArea } from './StudentDataForm.styles';
 import { useEffect, useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { studentFormSchema, StudentFormSchemaType } from '../../../types/studentFormSchema.type';
@@ -11,11 +11,11 @@ import {
 	expectedContractTypeEnum,
 	expectedTypeWorkEnum,
 } from '../../../types/studentForm.enum';
-import { StudentFormType } from '../../../types/studentForm.type';
+import { StudentEntity, StudentFormType } from '../../../types/studentForm.type';
 import { updateStudent } from '../../../api/updateStudent';
 import { getStudent } from '../../../api/getStudent';
 
-export const StudentDataFormTemplate = ({ id }: { id: string }) => {
+export const StudentDataForm = ({ id }: { id: string }) => {
 	const {
 		control,
 		handleSubmit,
@@ -29,7 +29,7 @@ export const StudentDataFormTemplate = ({ id }: { id: string }) => {
 	const [loading, setLoading] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const [error, setError] = useState('');
-	const [userData, setUserData] = useState(null);
+	const [userData, setUserData] = useState<StudentEntity | null>(null);
 	const [downloadUserData, setDownloadUserData] = useState(false);
 
 	useEffect(() => {
@@ -37,15 +37,17 @@ export const StudentDataFormTemplate = ({ id }: { id: string }) => {
 			(async () => {
 				const data = await getStudent(id);
 				console.log(data);
-				if (data) {
+				if (data.id) {
 					setUserData(data);
+					setDownloadUserData(true);
+				} else {
+					setDownloadUserData(true);
 				}
-				setDownloadUserData(true);
 			})();
-		} catch (e) {
+		} catch {
 			setDownloadUserData(true);
 		}
-	}, []);
+	}, [id]);
 
 	const onSubmit = async ({
 		email,
@@ -117,7 +119,8 @@ export const StudentDataFormTemplate = ({ id }: { id: string }) => {
 		downloadUserData && (
 			<StudentFormWrapper>
 				<p>
-					{loading && 'Wysyłanie formularza...'} {submitted && 'Formularz został wysłany.'}{' '}
+					{loading && 'Wysyłanie formularza...'}
+					{submitted && 'Formularz został wysłany.'}
 					{error && `${error}`}
 				</p>
 				<h2>Dodaj lub edytuj swoje dane:</h2>
@@ -128,7 +131,7 @@ export const StudentDataFormTemplate = ({ id }: { id: string }) => {
 							<Controller
 								name="email"
 								control={control}
-								defaultValue={userData ? userData.email : ''}
+								defaultValue={userData ? userData.email ?? '' : ''}
 								render={({ field }) => <StyledInput {...field} type="email" />}
 							/>
 							{errors.email && <p>{errors.email.message}</p>}

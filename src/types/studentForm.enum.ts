@@ -17,3 +17,9 @@ export enum canTakeApprenticeshipEnum {
 	YES = 'tak',
 	NO = 'nie',
 }
+
+export enum StudentStatusEnum {
+	ACCESSIBLE,
+	PENDING,
+	EMPLOYED,
+}

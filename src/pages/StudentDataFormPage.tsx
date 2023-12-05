@@ -1,11 +1,11 @@
 import { MainTemplate } from '../components/templates/MainTemplate/MainTemplate';
-import { StudentDataFormTemplate } from '../components/templates/StudentDataFormTemplate/StudentDataFormTemplate';
+import { StudentDataForm } from '../components/organisms/StudentDataForm/StudentDataForm';
 
 export const StudentDataFormPage = () => {
 	return (
 		<>
 			<MainTemplate />
-			<StudentDataFormTemplate id={'123'} />
+			<StudentDataForm id={'123'} />
 		</>
 	);
 };

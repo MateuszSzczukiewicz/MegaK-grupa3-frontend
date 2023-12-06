@@ -206,7 +206,12 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 											field.onChange(e);
 											showNextPortfolioInput(e, setIsPortfolioInputHidden);
 										}}
-										className={`${isPortfolioInputHidden[0] && !field.value && 'hidden'}`}
+										className={`${
+											isPortfolioInputHidden[0] &&
+											!field.value &&
+											!userData?.portfolioUrls[0].portfolioUrl &&
+											'hidden'
+										}`}
 									/>
 								)}
 							/>
@@ -223,7 +228,12 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 											field.onChange(e);
 											showNextPortfolioInput(e, setIsPortfolioInputHidden);
 										}}
-										className={`${isPortfolioInputHidden[1] && !field.value && 'hidden'}`}
+										className={`${
+											isPortfolioInputHidden[1] &&
+											!field.value &&
+											!userData?.portfolioUrls[1]?.portfolioUrl &&
+											'hidden'
+										}`}
 									/>
 								)}
 							/>
@@ -240,7 +250,12 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 											field.onChange(e);
 											showNextPortfolioInput(e, setIsPortfolioInputHidden);
 										}}
-										className={`${isPortfolioInputHidden[2] && !field.value && 'hidden'}`}
+										className={`${
+											isPortfolioInputHidden[2] &&
+											!field.value &&
+											!userData?.portfolioUrls[2]?.portfolioUrl &&
+											'hidden'
+										}`}
 									/>
 								)}
 							/>
@@ -276,7 +291,12 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 											field.onChange(e);
 											showNextProjectInput(e, setIsProjectInputHidden);
 										}}
-										className={`${isProjectInputHidden[0] && !field.value && 'hidden'}`}
+										className={`${
+											isProjectInputHidden[0] &&
+											!field.value &&
+											!userData?.projectUrls[0]?.projectUrl &&
+											'hidden'
+										}`}
 									/>
 								)}
 							/>
@@ -293,7 +313,12 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 											field.onChange(e);
 											showNextProjectInput(e, setIsProjectInputHidden);
 										}}
-										className={`${isProjectInputHidden[1] && !field.value && 'hidden'}`}
+										className={`${
+											isProjectInputHidden[1] &&
+											!field.value &&
+											!userData?.projectUrls[1]?.projectUrl &&
+											'hidden'
+										}`}
 									/>
 								)}
 							/>

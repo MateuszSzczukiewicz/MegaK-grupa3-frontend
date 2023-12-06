@@ -5,21 +5,32 @@ import { FilterBtn } from '../../atoms/FilterBtn/FilterBtn.tsx';
 import { useCallback, useEffect, useState } from 'react';
 import { StudentsPageFooter } from '../../molecules/StudentsPageFooter/StudentsPageFooter.tsx';
 import { getStudents } from '../../../api/students/GetStudentsAPI.ts';
-import {
-	StudentRowPropsType,
-	StudentsPageMainPropsType,
-} from '../../../types/StudentsPageProps.types.ts';
+import { StudentRowPropsType } from '../../../types/StudentsPageProps.types.ts';
+import { Filtration } from '../Filtration/Filtration.tsx';
 
-export const StudentsPageMain = ({
-	simplified,
-	toggleFilterVisible,
-}: StudentsPageMainPropsType) => {
+export const StudentsPageMain = ({ simplified }: { simplified: boolean }) => {
 	const [rowsLimit, setRowsLimit] = useState<number>(5);
 	const [activePage, setActivePage] = useState<number>(0);
 	const [searchBarValue, setSearchBarValue] = useState<string>('');
 	const [studentsList, setStudentsList] = useState<StudentRowPropsType[]>([]);
 	const [studentsRows, setStudentsRows] = useState<StudentRowPropsType[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
+	const [isFilterVisible, setIsFilterVisible] = useState<boolean>(false);
+	const [filters, setFilters] = useState({
+		gradeCourse: 0,
+		gradeEngagement: 0,
+		gradeCode: 0,
+		gradeScrum: 0,
+		preferredPlace: '',
+		contractType: '',
+		expectedSalary: 0,
+		unpaidConsent: false,
+		monthsCommercialExp: 0,
+	});
+
+	const toggleFilterVisible = (): void => {
+		setIsFilterVisible(!isFilterVisible);
+	};
 
 	const fetchData = useCallback(async () => {
 		try {
@@ -45,16 +56,20 @@ export const StudentsPageMain = ({
 
 	useEffect(() => {
 		setStudentsRows(
-			studentsList.filter(({ firstName, lastName }) => {
-				const fullName = `${firstName} ${lastName}`;
-				return fullName.toLowerCase().includes(searchBarValue.toLowerCase());
-			}),
+			studentsList
+				.filter(({ firstName, lastName }) => {
+					const fullName = `${firstName} ${lastName}`;
+					return fullName.toLowerCase().includes(searchBarValue.toLowerCase());
+				})
+				.filter((student) => {
+					return (
+						student.gradeCourse >= filters.gradeCourse &&
+						student.gradeEngagement >= filters.gradeEngagement &&
+						// Repeat for other filters...
+					);
+				}),
 		);
-	}, [searchBarValue, studentsList]);
-
-	if (loading) {
-		return <div>Loading...</div>;
-	}
+	}, [searchBarValue, studentsList, filters]);
 
 	const renderRows = studentsRows
 		.slice(activePage * rowsLimit, (activePage + 1) * rowsLimit)
@@ -82,6 +97,13 @@ export const StudentsPageMain = ({
 
 	return (
 		<>
+			{isFilterVisible ? (
+				<Filtration
+					toggleFilterVisible={toggleFilterVisible}
+					filters={filters}
+					setFilters={setFilters}
+				/>
+			) : null}
 			<StudentsMainStyle>
 				<TopStyle>
 					<SearchBar setSearchBarValue={setSearchBarValue} />

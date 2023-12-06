@@ -1,7 +1,12 @@
 import { SearchBarStyles, LoupDivStyle, SearchInputStyle } from './SearchBar.styles.ts';
 import { MagnifierIcon } from '../../../assets/icons/MagnifierIcon';
+import { FC } from 'react';
 
-export const SearchBar = ({ setSearchBarValue }) => (
+type SearchBarProps = {
+	setSearchBarValue: (value: string) => void;
+};
+
+export const SearchBar: FC<SearchBarProps> = ({ setSearchBarValue }) => (
 	<SearchBarStyles>
 		<LoupDivStyle>
 			<MagnifierIcon />

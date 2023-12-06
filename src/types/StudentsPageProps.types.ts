@@ -1,9 +1,4 @@
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
-
-export type StudentsPageMainPropsType = {
-	simplified: boolean;
-	toggleFilterVisible: MouseEventHandler;
-};
+import { Dispatch, SetStateAction } from 'react';
 
 export type StudentsPageHeaderPropsType = {
 	simplified: boolean;
@@ -41,7 +36,7 @@ export type StudentRatingPropsType = {
 	expectedTypeWork: string;
 	targetWorkCity: string;
 	expectedContractType: string;
-	expectedSalary: string;
+	expectedSalary: number;
 	canTakeApprenticeship: string;
 	monthsOfCommercialExp: number;
 };

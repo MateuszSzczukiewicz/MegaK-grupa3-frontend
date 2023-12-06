@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+type StyledButtonProps = {
+	isActive: boolean;
+};
+
 export const StyledBackground = styled.div`
 	position: fixed;
 	width: 100%;
@@ -19,6 +23,7 @@ export const StyledFiltration = styled.div`
 	left: 0;
 	width: 100%;
 	height: auto;
+	z-index: 1000;
 
 	${({ theme }) => theme.mq.xl} {
 		top: 50%;
@@ -43,12 +48,12 @@ export const StyledH2 = styled.h2`
 	color: ${({ theme }) => theme.color.white};
 `;
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<StyledButtonProps>`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	height: 27px;
-	background: ${({ theme }) => theme.color.grey1};
+	background: ${({ theme, isActive }) => (isActive ? theme.color.grey8 : theme.color.grey1)};
 	color: ${({ theme }) => theme.color.white};
 	font-size: ${({ theme }) => theme.font.size.xxs};
 	font-weight: ${({ theme }) => theme.font.weight.medium};
@@ -83,15 +88,11 @@ export const StyledInput = styled.input`
 	border: none;
 	padding: 5px 10px;
 	margin-right: 13px;
+	color: ${({ theme }) => theme.color.white};
 
 	&:focus {
+		background-color: ${({ theme }) => theme.color.grey8};
 		outline: none;
-	}
-
-	&::-webkit-inner-spin-button,
-	&::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
 	}
 `;
 

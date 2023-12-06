@@ -2,9 +2,9 @@ import { StyledButton } from './ClearButton.styles.ts';
 import { MouseEventHandler } from 'react';
 
 export const ClearButton = ({
-	toggleFilterVisible,
+	handleClearButtonClick,
 }: {
-	toggleFilterVisible: MouseEventHandler;
+	handleClearButtonClick: MouseEventHandler;
 }) => {
-	return <StyledButton onClick={toggleFilterVisible}>Wyczyść wszystkie</StyledButton>;
+	return <StyledButton onClick={handleClearButtonClick}>Wyczyść wszystkie</StyledButton>;
 };

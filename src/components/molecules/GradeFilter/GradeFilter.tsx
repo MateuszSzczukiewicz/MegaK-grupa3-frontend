@@ -1,6 +1,6 @@
+import { useState } from 'react';
 import { GradeButton } from '../../atoms/GradeButton/GradeButton.tsx';
 import { Group, StyledH3, StyledList } from '../../organisms/Filtration/Filtration.styles.ts';
-import { useState } from 'react';
 
 export const GradeFilter = ({
 	title,
@@ -9,11 +9,11 @@ export const GradeFilter = ({
 	title: string;
 	onChange: (value: number) => void;
 }) => {
-	const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
+	const [activeGrade, setActiveGrade] = useState<number | null>(null);
 
-	const handleGradeClick = (gradeNumber: number) => {
-		setSelectedGrade(gradeNumber);
+	const handleGradeChange = (gradeNumber: number) => {
 		onChange(gradeNumber);
+		setActiveGrade(gradeNumber);
 	};
 
 	return (
@@ -24,8 +24,8 @@ export const GradeFilter = ({
 					<GradeButton
 						key={gradeNumber}
 						gradeNumber={gradeNumber}
-						isActive={selectedGrade === gradeNumber}
-						onClick={() => handleGradeClick(gradeNumber)}
+						onChange={handleGradeChange}
+						isActive={gradeNumber === activeGrade}
 					/>
 				))}
 			</StyledList>

@@ -11,6 +11,7 @@ import BlankUser from '../../../assets/images/blank_user.png';
 import { StudentRowInfoPropsType } from '../../../types/StudentsPageProps.types.ts';
 
 export const StudentRowInfo = ({
+	studentId,
 	firstName,
 	lastName,
 	gitHubUserName,
@@ -19,7 +20,7 @@ export const StudentRowInfo = ({
 	const navigate = useNavigate();
 
 	const handleNavigate = () => {
-		navigate('/student');
+		navigate(`/students/cv/${studentId}`);
 	};
 
 	return (

@@ -8,71 +8,95 @@ import { TextArea } from '../../atoms/TextArea/TextArea';
 import { Link } from '../../atoms/Link/Link';
 import { EmploymentExpectation } from '../../molecules/EmploymentExpectation/EmploymentExpectation.tsx';
 import { GradeStars } from '../../atoms/GradeStars/GradeStars';
+import { StudentCVType } from '../../../types/StudentCVType.types.ts';
 
-export const StudentAchievements = () => {
+export const StudentAchievements = ({
+	courseCompletion,
+	courseEngagement,
+	projectDegree,
+	teamProjectDegree,
+	expectedTypeWork,
+	targetWorkCity,
+	expectedContractType,
+	expectedSalary,
+	canTakeApprenticeship,
+	monthsOfCommercialExp,
+	education,
+	courses,
+	workExperience,
+	portfolioUrls,
+	projectUrls,
+	bonusProjectUrls,
+}: StudentCVType) => {
 	return (
 		<StudentAchievementsWrapper>
 			<SectionTitle>Oceny</SectionTitle>
 			<Grades>
 				<EmploymentExpectation expectationName="Ocena przejścia kursu">
-					<GradeStars gradeNumber={1}></GradeStars>
+					<GradeStars gradeNumber={courseCompletion}></GradeStars>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Ocena aktywności i zaangażowania na kursie">
-					<GradeStars gradeNumber={2}></GradeStars>
+					<GradeStars gradeNumber={courseEngagement}></GradeStars>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Ocena kodu w projekcie własnym">
-					<GradeStars gradeNumber={3}></GradeStars>
+					<GradeStars gradeNumber={projectDegree}></GradeStars>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Ocena pracy w zespole Scrum">
-					<GradeStars gradeNumber={4}></GradeStars>
+					<GradeStars gradeNumber={teamProjectDegree}></GradeStars>
 				</EmploymentExpectation>
 			</Grades>
 			<SectionTitle>Oczekiwanie w stosunku do zatrudnienia</SectionTitle>
 			<EmploymentExpectations>
 				<EmploymentExpectation expectationName="Preferowane miejsce pracy">
-					<p>Biuro</p>
+					<p>{expectedTypeWork}</p>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Docelowe miasto, gdzie chce pracować kandydat">
-					<p>Warszawa</p>
+					<p>{targetWorkCity}</p>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Oczekiwany typ kontraktu">
-					<p>Umowa o pracę</p>
+					<p>{expectedContractType}</p>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Oczekiwane wynagrodzenie miesięczne netto">
-					<p>5000zł</p>
+					<p>{expectedSalary}</p>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Zgoda na odbycie bezpłatnych praktyk/stażu na początek">
-					<p>TAK</p>
+					<p>{canTakeApprenticeship}</p>
 				</EmploymentExpectation>
 				<EmploymentExpectation expectationName="Komercyjne doświadczenie w programowaniu">
-					<p>NIE</p>
+					<p>{monthsOfCommercialExp}</p>
 				</EmploymentExpectation>
 			</EmploymentExpectations>
 			<SectionTitle>Edukacja</SectionTitle>
 			<TextArea>
-				<p>{/*{student.education}*/}</p>
+				<p>{education}</p>
 			</TextArea>
 			<SectionTitle>Kursy</SectionTitle>
 			<TextArea>
-				<p>{/*{student.courses}*/}</p>
+				<p>{courses}</p>
 			</TextArea>
 			<SectionTitle>Doświadczenie zawodowe</SectionTitle>
 			<TextArea>
-				<p>{/*{student.experience}*/}</p>
+				<p>{workExperience}</p>
 			</TextArea>
 			<SectionTitle>Portfolio</SectionTitle>
 			<TextArea>
-				<Link link={'https://Loremipsum/dolor/sit/amet'} />
+				{portfolioUrls &&
+					portfolioUrls.length > 0 &&
+					portfolioUrls.map(({ portfolioUrl, id }) => <Link link={portfolioUrl} key={id} />)}
 			</TextArea>
 			<SectionTitle>Projekt w zespole Scrumowym</SectionTitle>
 			<TextArea>
-				<Link link={'https://Loremipsum/dolor/sit/amet'} />
-				<Link link={'https://Loremipsum/dolor/sit/amet'} />
+				{projectUrls &&
+					projectUrls.length > 0 &&
+					projectUrls.map(({ projectUrl, id }) => <Link link={projectUrl} key={id} />)}
 			</TextArea>
 			<SectionTitle>Projekt na zaliczenie</SectionTitle>
 			<TextArea>
-				<Link link={'https://Loremipsum/dolor/sit/amet'} />
-				<Link link={'https://Loremipsum/dolor/sit/amet'} />
+				{bonusProjectUrls &&
+					bonusProjectUrls.length > 0 &&
+					bonusProjectUrls.map(({ bonusProjectUrl, id }) => (
+						<Link link={bonusProjectUrl} key={id} />
+					))}
 			</TextArea>
 		</StudentAchievementsWrapper>
 	);

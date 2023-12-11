@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { UpdateStudentType } from '../../types/StudentFormType.types.ts';
+import type { UpdateStudentType } from '../../types/StudentFormType.types.ts';
 
 export const updateStudent = async ({
 	id,
@@ -12,10 +12,10 @@ export const updateStudent = async ({
 	const url = `${import.meta.env.VITE_API_KEY}/student/${id}`;
 
 	try {
-		const response: AxiosResponse = await axios.put(url, dataForUpdate);
+		const response: AxiosResponse = await axios.post(url, dataForUpdate);
 		return response.data;
 	} catch (err) {
-		console.error('Error getting books:', err);
+		console.error('Error updating books:', err);
 		return [];
 	}
 };

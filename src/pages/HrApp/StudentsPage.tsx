@@ -1,4 +1,4 @@
-import { StudentsComponent } from '../../components/organisms/StudentsComponent/StudentsComponent.tsx';
+import { StudentsComponent } from '../../components/templates/StudentsComponent/StudentsComponent.tsx';
 import { MainTemplate } from '../../components/templates/MainTemplate/MainTemplate.tsx';
 
 export const StudentsPage = () => {

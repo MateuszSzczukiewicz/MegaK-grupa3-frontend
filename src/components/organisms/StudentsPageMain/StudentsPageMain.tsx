@@ -10,13 +10,14 @@ import { SearchBar } from '../../atoms/SearchBar/SearchBar.tsx';
 import { FilterBtn } from '../../atoms/FilterBtn/FilterBtn.tsx';
 import { StudentRow } from '../../molecules/StudentRow/StudentRow.tsx';
 import { StudentsPageFooter } from '../../molecules/StudentsPageFooter/StudentsPageFooter.tsx';
+import { StudentStateType } from '../../../types/StudentStateType.types.ts';
 
 export const StudentsPageMain = ({ simplified }: { simplified: boolean }) => {
 	const [rowsLimit, setRowsLimit] = useState<number>(5);
 	const [activePage, setActivePage] = useState<number>(0);
 	const [searchBarValue, setSearchBarValue] = useState<string>('');
 	const [studentsList, setStudentsList] = useState<StudentRowPropsType[]>([]);
-	const [filters, setFilters] = useState(INITIAL_STUDENT_STATE);
+	const [filters, setFilters] = useState<StudentStateType>(INITIAL_STUDENT_STATE);
 	const { isFilterVisible, toggleFilterVisible } = useFilterVisibility(false);
 	const filteredData = useFilteredData(studentsList, filters, searchBarValue);
 

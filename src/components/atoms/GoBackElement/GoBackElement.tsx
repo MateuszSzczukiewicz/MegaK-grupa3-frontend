@@ -6,7 +6,7 @@ export const GoBackElement = () => {
 	const navigate = useNavigate();
 
 	const handleNavigate = () => {
-		navigate('/');
+		navigate('/students');
 	};
 	return (
 		<StyledGoBackElement onClick={handleNavigate}>

@@ -7,6 +7,7 @@ import { StudentRatings } from '../StudentRatings/StudentRatings';
 import { StudentRowPropsType } from '../../../types/StudentsPageProps.types.ts';
 
 export const StudentRow = ({
+	studentId,
 	firstName,
 	lastName,
 	reservationDate,
@@ -30,6 +31,7 @@ export const StudentRow = ({
 	return (
 		<StudentRowStyle>
 			<StudentRowInfo
+				studentId={studentId}
 				firstName={firstName}
 				lastName={lastName}
 				gitHubUserName={gitHubUserName ? `https://github.com/${gitHubUserName}.png` : null}

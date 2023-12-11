@@ -5,7 +5,6 @@ export const getStudents = async () => {
 
 	try {
 		const response: AxiosResponse = await axios.get(url);
-		console.log(response.data.students);
 		return response.data.students;
 	} catch (err) {
 		console.error('Error getting books:', err);

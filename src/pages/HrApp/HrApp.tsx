@@ -8,7 +8,7 @@ export const HrApp = () => {
 		<Routes>
 			<Route path="/" element={<LoginPage />} />
 			<Route path="/students" element={<StudentsPage />} />
-			<Route path="/studentCV" element={<StudentPage />} />
+			<Route path="/students/cv/:studentId" element={<StudentPage />} />
 		</Routes>
 	);
 };

@@ -1,5 +1,6 @@
-import { PrimaryButtonStyles } from './PrimaryButton.styles.ts';
+import { PrimaryButtonStyles } from "./PrimaryButton.styles";
+import {PrimaryButtonPropsType} from "../../../types/PrimaryButtonTypes/PrimaryButton.types";
 
-export const PrimaryButton = ({ text, onClick }: { text: string; onClick?: () => void }) => (
-	<PrimaryButtonStyles onClick={onClick}>{text}</PrimaryButtonStyles>
-);
+export const PrimaryButton = ({text, onClick}:PrimaryButtonPropsType) =>(
+    <PrimaryButtonStyles onClick={onClick}>{text}</PrimaryButtonStyles>
+)

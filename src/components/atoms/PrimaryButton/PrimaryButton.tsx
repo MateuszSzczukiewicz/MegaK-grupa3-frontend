@@ -1,6 +1,6 @@
-import {PrimaryButtonStyle} from "./PrimaryButton.style";
+import { PrimaryButtonStyles } from "./PrimaryButton.styles";
 import {PrimaryButtonPropsType} from "../../../types/PrimaryButtonTypes/PrimaryButton.types";
 
 export const PrimaryButton = ({text, onClick}:PrimaryButtonPropsType) =>(
-    <PrimaryButtonStyle onClick={onClick}>{text}</PrimaryButtonStyle>
+    <PrimaryButtonStyles onClick={onClick}>{text}</PrimaryButtonStyles>
 )

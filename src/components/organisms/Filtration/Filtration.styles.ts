@@ -1,13 +1,38 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
-	margin: auto;
+type StyledButtonProps = {
+	isActive: boolean;
+};
+
+export const StyledBackground = styled.div`
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+`;
+
+export const StyledFiltration = styled.div`
+	position: absolute;
 	display: flex;
 	flex-direction: column;
-	width: 512px;
-	height: 806px;
 	background-color: ${({ theme }) => theme.color.black};
 	padding: 20px;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 1000;
+
+	${({ theme }) => theme.mq.xl} {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		position: fixed;
+		width: auto;
+		height: auto;
+	}
 `;
 
 export const StyledHeader = styled.div`
@@ -23,12 +48,12 @@ export const StyledH2 = styled.h2`
 	color: ${({ theme }) => theme.color.white};
 `;
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<StyledButtonProps>`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	height: 27px;
-	background: ${({ theme }) => theme.color.grey1};
+	background: ${({ theme, isActive }) => (isActive ? theme.color.grey8 : theme.color.grey1)};
 	color: ${({ theme }) => theme.color.white};
 	font-size: ${({ theme }) => theme.font.size.xxs};
 	font-weight: ${({ theme }) => theme.font.weight.medium};
@@ -63,15 +88,11 @@ export const StyledInput = styled.input`
 	border: none;
 	padding: 5px 10px;
 	margin-right: 13px;
+	color: ${({ theme }) => theme.color.white};
 
 	&:focus {
+		background-color: ${({ theme }) => theme.color.grey8};
 		outline: none;
-	}
-
-	&::-webkit-inner-spin-button,
-	&::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
 	}
 `;
 

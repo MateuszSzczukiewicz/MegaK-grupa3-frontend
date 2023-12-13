@@ -3,27 +3,34 @@ import { SingleDetail } from '../SingleDetail/SingleDetail';
 import { MailIcon } from '../../../assets/icons/MailIcon';
 import { PhoneIcon } from '../../../assets/icons/PhoneIcon';
 import { GitHubIcon } from '../../../assets/icons/GitHubIcon';
+import { StudentCVType } from '../../../types/StudentCVType.types.ts';
 
-export const StudentDetails = () => {
+export const StudentDetails = ({
+	firstName,
+	lastName,
+	email,
+	tel,
+	gitHubUserName,
+}: StudentCVType) => {
 	return (
 		<>
-			<StyledImgWrapper>
-				<img alt=""></img>
-			</StyledImgWrapper>
-			<StyledH1>Jan Kowalski</StyledH1>
+			<StyledImgWrapper></StyledImgWrapper>
+			<StyledH1>
+				{firstName} {lastName}
+			</StyledH1>
 			<StyledLink>
 				<div>
 					<GitHubIcon />
 				</div>
-				<p>jankowalski</p>
+				<p>{gitHubUserName}</p>
 			</StyledLink>
 			<SingleDetail>
 				<PhoneIcon />
-				<a href="tel:+4812334567">+4812334567</a>
+				<a href={`tel:${tel}`}>{tel}</a>
 			</SingleDetail>
 			<SingleDetail>
 				<MailIcon />
-				<a href="mailto:1233456vdv@vfdfvdvfvf">1233456vdv@vfdfvdvfvf</a>
+				<a href={`mailto:${email}`}>{email}</a>
 			</SingleDetail>
 		</>
 	);

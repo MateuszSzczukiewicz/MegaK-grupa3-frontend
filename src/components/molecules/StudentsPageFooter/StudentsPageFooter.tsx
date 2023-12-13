@@ -1,46 +1,54 @@
-import {ChevronDownIcon} from "../../../assets/icons/ChevronDownIcon";
-import {ButtonStyle, RowsCounterStyle, SelectStyle, StudentsPageFooterStyle} from "./StudentsPageFooter.style";
-import {StudentsPageFooterPropsType} from "../../../types/StudentsPagePropsTypes/StudentsPageProps.types";
+import { ChevronDownIcon } from '../../../assets/icons/ChevronDownIcon';
+import {
+	ButtonStyle,
+	RowsCounterStyle,
+	SelectStyle,
+	StudentsPageFooterStyles,
+} from './StudentsPageFooter.styles.ts';
+import { StudentsPageFooterPropsType } from '../../../types/StudentsPageProps.types.ts';
 
+export const StudentsPageFooter = ({
+	rowsLimit,
+	setRowsLimit,
+	LengthOfStudentsList,
+	activePage,
+	setActivePage,
+}: StudentsPageFooterPropsType) => {
+	const pageHandler = (value: -1 | 1) => {
+		setActivePage((prevState) => prevState + value);
+	};
 
-export const StudentsPageFooter = ({ rowsLimit, setRowsLimit, LengthOfStudentsList, activePage, setActivePage }:StudentsPageFooterPropsType) => {
+	return (
+		<StudentsPageFooterStyles>
+			<span>Ilość elementów </span>
 
-    const pageHandler = (value:-1|1) => {
-        setActivePage(prevState => prevState + value);
-    }
+			<SelectStyle name="numOfRows" onChange={(e) => setRowsLimit(Number(e.target.value))}>
+				<option value="5">5</option>
+				<option value="10">10</option>
+			</SelectStyle>
 
-    return(
-        <StudentsPageFooterStyle>
-            <span>Ilość elementów </span>
+			<RowsCounterStyle>
+				{LengthOfStudentsList < rowsLimit * (1 + activePage)
+					? LengthOfStudentsList
+					: rowsLimit * (1 + activePage)}{' '}
+				z {LengthOfStudentsList}
+			</RowsCounterStyle>
 
-            <SelectStyle name="numOfRows" onChange={(e)=>setRowsLimit(Number(e.target.value))}>
-                <option value="5">5</option>
-                <option value="10">10</option>
-            </SelectStyle>
+			<ButtonStyle
+				disabled={activePage === 0}
+				onClick={() => pageHandler(-1)}
+				style={{ rotate: '90deg' }}
+			>
+				<ChevronDownIcon />
+			</ButtonStyle>
 
-            <RowsCounterStyle>
-                {LengthOfStudentsList < rowsLimit*(1+activePage) ?
-                    LengthOfStudentsList :
-                    rowsLimit*(1+activePage)
-                } z {LengthOfStudentsList}
-            </RowsCounterStyle>
-
-            <ButtonStyle
-                disabled={activePage === 0}
-                onClick={()=>pageHandler(-1)}
-                style={{rotate:"90deg"}}
-            >
-                <ChevronDownIcon/>
-            </ButtonStyle>
-
-            <ButtonStyle
-                disabled={LengthOfStudentsList < rowsLimit*(1+activePage)}
-                onClick={()=>pageHandler(1)}
-                style={{rotate:"-90deg"}}
-            >
-                <ChevronDownIcon/>
-            </ButtonStyle>
-
-        </StudentsPageFooterStyle>
-    )
-}
+			<ButtonStyle
+				disabled={LengthOfStudentsList < rowsLimit * (1 + activePage)}
+				onClick={() => pageHandler(1)}
+				style={{ rotate: '-90deg' }}
+			>
+				<ChevronDownIcon />
+			</ButtonStyle>
+		</StudentsPageFooterStyles>
+	);
+};

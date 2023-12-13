@@ -10,9 +10,12 @@ export const StyledHeader = styled.header`
 
 export const StyledWrapper = styled.div`
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
-	width: 1430px;
+	gap: 30px;
+
+	${({ theme }) => theme.mq.md} {
+		width: 80%;
+	}
 `;
 
 export const StyledLogo = styled.img`

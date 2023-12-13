@@ -1,5 +1,12 @@
 import { StyledButton } from './LoginButton.styles.ts';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginButton = () => {
-	return <StyledButton>Zaloguj się</StyledButton>;
+	const navigate = useNavigate();
+
+	const handleNavigate = () => {
+		navigate('/students');
+	};
+
+	return <StyledButton onClick={handleNavigate}>Zaloguj się</StyledButton>;
 };

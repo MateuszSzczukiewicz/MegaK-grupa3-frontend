@@ -1,10 +1,9 @@
-export const StarIcon = () => {
+export const StarIcon = ({ isGray }: { isGray?: boolean }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
-			stroke="#E02735"
-			fill="#E02735"
+			fill={isGray ? '#4D4D4D' : '#E02735'}
 			height="15"
 			width="15"
 		>
@@ -12,5 +11,3 @@ export const StarIcon = () => {
 		</svg>
 	);
 };
-       
-      

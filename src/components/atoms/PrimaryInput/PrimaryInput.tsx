@@ -1,6 +1,6 @@
-import {PrimaryInputStyle} from "./PrimaryInput.style";
-import {PrimaryInputPropsType} from "../../../types/PrimaryInputTypes/PrimaryInput.types";
+import { PrimaryInputStyle } from './PrimaryInput.styles';
+import { PrimaryInputPropsType } from '../../../types/PrimaryInputType.types';
 
-export const PrimaryInput = ({type, placeholder, onChange}:PrimaryInputPropsType) => (
-    <PrimaryInputStyle type={type??"text"} placeholder={placeholder} onChange={onChange}/>
-)
+export const PrimaryInput = ({ type, placeholder, onChange }: PrimaryInputPropsType) => (
+	<PrimaryInputStyle type={type ?? 'text'} placeholder={placeholder} onChange={onChange} />
+);

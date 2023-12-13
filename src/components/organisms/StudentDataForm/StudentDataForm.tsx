@@ -40,7 +40,6 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 	const fetchData = useCallback(async () => {
 		try {
 			const data = await getStudent(id);
-			console.log(data);
 			if (data.id) {
 				setUserData(data);
 				setDownloadUserData(true);
@@ -116,7 +115,6 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 			if (data.isSuccess) {
 				setFormState((prevState) => ({ ...prevState, submitted: true }));
 			} else {
-				console.log(data);
 				setFormState((prevState) => ({ ...prevState, submitted: true }));
 				setFormState((prevState) => ({ ...prevState, error: `Wystąpił błąd: ${data.error}` }));
 			}

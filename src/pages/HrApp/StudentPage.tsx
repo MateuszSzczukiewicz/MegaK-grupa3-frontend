@@ -7,7 +7,7 @@ export const StudentPage = () => {
 
 	return (
 		<>
-			<MainTemplate>
+			<MainTemplate studentId={studentId}>
 				<StudentCVTemplate studentId={studentId} />
 			</MainTemplate>
 		</>

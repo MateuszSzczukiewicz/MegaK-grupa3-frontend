@@ -4,6 +4,7 @@ import { LoginPage } from './LoginPage.tsx';
 import { StudentPage } from './StudentPage';
 import { StudentsPage } from "./StudentsPage";
 import {StudentProfilePage} from "./StudentProfilePage";
+import {AddStudents} from "../components/organisms/AddStudents/AddStudents";
 
 export const Root = () => {
 	return (
@@ -13,6 +14,7 @@ export const Root = () => {
       		<Route path="/student" element={<StudentPage />} />
 			<Route path="/students" element={ <StudentsPage /> }/>
 			<Route path="/profile" element={ <StudentProfilePage /> }/>
+			<Route path="/add-students" element={ <AddStudents /> }/>
 		</Routes>
 	);
 };

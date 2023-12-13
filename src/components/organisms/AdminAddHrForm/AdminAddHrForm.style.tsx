@@ -32,7 +32,7 @@ export const AdminFormWrapper = styled.div`
 
 		label {
 			display: block;
-			width: 260px;
+			width: 270px;
 			margin: 30px;
 
 			p {

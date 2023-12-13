@@ -104,7 +104,7 @@ export const AdminAddHrForm = () => {
 						{errors.maxReservationStudents && <p>{errors.maxReservationStudents.message}</p>}
 					</label>
 				</div>
-				<PrimaryButton text="Wyślij formularz"></PrimaryButton>
+				<PrimaryButton text="Dodaj do bazy danych"></PrimaryButton>
 			</form>
 		</AdminFormWrapper>
 	);

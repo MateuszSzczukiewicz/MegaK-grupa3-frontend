@@ -1,10 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
-import { LoginPage } from './LoginPage.tsx';
+import { HrApp } from './HrApp/HrApp.tsx';
+import { StudentApp } from './StudentApp/StudentApp.tsx';
 
 export const Root = () => {
 	return (
-		<Routes>
-			<Route path="/" element={<LoginPage />} />
-		</Routes>
+		<>
+			<HrApp />
+			<StudentApp />
+		</>
 	);
 };

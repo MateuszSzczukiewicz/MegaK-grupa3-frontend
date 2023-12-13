@@ -8,9 +8,10 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  header, main, article, section, aside, footer, h1, h2, h3, h4, h5, h6, p, li, a, label, input, select {
+	
+	body {
+		background-color: ${({ theme }) => theme.color.grey9};;
     font-family: "Catamaran", sans-serif;
     font-weight: ${({ theme }) => theme.font.weight.regular};
-  }
+	}
 `;

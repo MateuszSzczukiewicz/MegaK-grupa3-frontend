@@ -6,8 +6,8 @@ import { HrProfile } from './HrProfilePage.tsx';
 export const HrApp = () => {
 	return (
 		<Routes>
-			<Route path="/students" element={<StudentsPage />} />
-			<Route path="/students/cv/:studentId" element={<StudentPage />} />
+			<Route path="*" element={<StudentsPage />} />
+			<Route path="/cv/:studentId" element={<StudentPage />} />
 			<Route path="/hr-profile" element={<HrProfile />} />
 		</Routes>
 	);

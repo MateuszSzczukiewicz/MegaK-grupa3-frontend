@@ -4,7 +4,7 @@ import { AdminPage } from './AdminPage';
 export const AdminApp = () => {
 	return (
 		<Routes>
-			<Route path="/admin" element={<AdminPage />} />
+			<Route path="*" element={<AdminPage />} />
 		</Routes>
 	);
 };

@@ -5,7 +5,9 @@ export const AdminFormWrapper = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin-top: 50px;
+	height: 700px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	color: ${({ theme }) => theme.color.white};
 
 	h2 {

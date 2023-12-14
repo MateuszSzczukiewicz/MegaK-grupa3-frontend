@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import user from '../../../assets/images/blank_user.png';
 
-export const StyledImgWrapper = styled.div`
+export const StyledImgWrapper = styled.div<{ $gitHubUserName?: string }>`
+	background-image: url(${(props) => `https://github.com/${props.$gitHubUserName}.png` || user});
 	width: 150px;
 	height: 150px;
-	background-color: #fff;
 	background-size: cover;
 	background-position: center;
 	border-radius: 50%;

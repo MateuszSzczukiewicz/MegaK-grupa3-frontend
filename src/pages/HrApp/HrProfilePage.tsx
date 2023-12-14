@@ -13,3 +13,4 @@ export const HrProfile = () => {
 		</Wrapper>
 	);
 };
+// @TODO do usunięcia

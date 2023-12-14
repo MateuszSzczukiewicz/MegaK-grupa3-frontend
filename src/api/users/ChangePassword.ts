@@ -6,7 +6,7 @@ export const changePassword = async (
 	data: ChangePasswordType,
 ): Promise<ChangePasswordResponse> => {
 	try {
-		const res = await axios.post(`http://localhost:3000/user/${userId}`, data);
+		const res = await axios.post(`${import.meta.env.VITE_API_KEY}/user/${userId}`, data);
 		return res.data;
 	} catch (err: Error) {
 		return {

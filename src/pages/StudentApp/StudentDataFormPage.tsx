@@ -1,12 +1,48 @@
 import { MainTemplate } from '../../components/templates/MainTemplate/MainTemplate';
 import { StudentDataForm } from '../../components/organisms/StudentDataForm/StudentDataForm';
+import { PrimaryButton } from '../../components/atoms/PrimaryButton/PrimaryButton';
+import { StudentDataFormPageWrapper } from './StudentDataFormPage.style';
+import { useNavigate } from 'react-router-dom';
+import { useCallback, useContext, useEffect, useState } from 'react';
+import { UserContext } from '../../contexts/user.context';
+import { getUser } from '../../api/users/GetUserAPI';
 
 export const StudentDataFormPage = () => {
+	const navigate = useNavigate();
+	const { user } = useContext(UserContext);
+	const [studentId, setStudentId] = useState('');
+
+	const fetchData = useCallback(async () => {
+		try {
+			const data = await getUser(user.userId);
+			if (data.student.id) {
+				setStudentId(data.student.id);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}, [user]);
+
+	useEffect(() => {
+		(async () => {
+			try {
+				await fetchData();
+			} catch (e) {
+				console.error('Error fetching user:', e);
+			}
+		})();
+	}, [fetchData]);
+
+	const handleClick = () => {
+		navigate(`/students/cv/${studentId}`);
+	};
+
 	return (
-		<>
-			<MainTemplate>
-				<StudentDataForm id={'954dc700-4438-4280-a852-a08ec23f3831'} />
-			</MainTemplate>
-		</>
+		<MainTemplate>
+			<StudentDataFormPageWrapper>
+				<PrimaryButton text={'Podgląd CV'} onClick={handleClick} />
+				{studentId && <StudentDataForm id={studentId} />}
+			</StudentDataFormPageWrapper>
+		</MainTemplate>
 	);
 };

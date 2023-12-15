@@ -109,7 +109,6 @@ export const StudentDataForm = ({ id }: { id: string }) => {
 				workExperience,
 				courses,
 			};
-			console.log(dataForUpdate);
 
 			const data = await updateStudent({ id, dataForUpdate });
 			if (data.isSuccess) {

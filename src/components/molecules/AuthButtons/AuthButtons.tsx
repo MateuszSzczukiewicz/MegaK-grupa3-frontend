@@ -1,4 +1,3 @@
-import { LoginButton } from '../../atoms/LoginButton/LoginButton.tsx';
 import { RecoveryButton } from '../../atoms/RecorveryButton/RecoveryButton.tsx';
 import { RegisterButton } from '../../atoms/RegisterButton/RegisterButton.tsx';
 import { Wrapper } from './AuthButtons.styles.ts';
@@ -9,7 +8,6 @@ export const AuthButtons = () => {
 			<RecoveryButton />
 			<Wrapper>
 				<RegisterButton />
-				<LoginButton />
 			</Wrapper>
 		</>
 	);

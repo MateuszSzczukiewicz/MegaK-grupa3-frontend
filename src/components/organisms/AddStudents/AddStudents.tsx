@@ -1,6 +1,6 @@
 import {parse} from "papaparse";
 import {useState} from "react";
-import {Student} from "../../../types/HrStudentAddTypes/HrStudentsAdd.type";
+import {Student} from "../../../types/HrStudentsAdd.type";
 import {FileStudentsTable} from "../../molecules/FileStudentsTable/FileStudentsTable";
 import {AddStudentsStyle} from "./AddStudents.style";
 import {PrimaryButton} from "../../atoms/PrimaryButton/PrimaryButton";
@@ -38,7 +38,6 @@ export const AddStudents = () => {
                         bonusProjectUrls: newStudent[5].split(",").map(e => e.replace("\"", "").replace(" ", "")),
                     } as Student;
                 })
-                console.log(arr)
                 setStudentsData(arr);
             }
         })

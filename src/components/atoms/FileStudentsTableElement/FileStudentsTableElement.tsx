@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {FileStudentsTableElementProps} from "../../../types/HrStudentAddTypes/HrStudentsAdd.type";
+import {FileStudentsTableElementProps} from "../../../types/HrStudentsAdd.type";
 import {Stars} from "../../../types/Stars.type";
 
 

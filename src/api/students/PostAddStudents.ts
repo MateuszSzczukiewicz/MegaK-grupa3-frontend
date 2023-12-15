@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {Student} from "../../types/HrStudentAddTypes/HrStudentsAdd.type";
+import {Student} from "../../types/HrStudentsAdd.type";
 
 export const PostAddStudents = async (data:Omit<Student, "id">) => {
     try {

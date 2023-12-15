@@ -1,13 +1,27 @@
-import { HrApp } from './HrApp/HrApp.tsx';
-import { StudentApp } from './StudentApp/StudentApp.tsx';
-import { AdminApp } from './AdminApp/AdminApp';
+import { useState } from 'react';
+import { UnauthenticatedApp } from './UnauthenticatedApp/UnauthenticatedApp.tsx';
+import { AuthenticatedApp } from './AuthenticatedApp/AuthenticatedApp';
 
 export const Root = () => {
-	return (
-		<>
-			<HrApp />
-			<StudentApp />
-			<AdminApp />
-		</>
-	);
+	const [userRole, setUserRole] = useState<number | null>(null);
+
+	if (userRole === null) {
+		return <UnauthenticatedApp onLogin={(role) => setUserRole(role)} />;
+	} else {
+		return <AuthenticatedApp userRole={userRole} />;
+	}
 };
+
+// return (
+// 	<>
+// 		<UserContext.Provider value={{ user, setUser }}>
+// 			<Routes>
+// 				<Route path="/profile" element={<ProfilePage />} />
+// 				<Route path="/login" element={<LoginPage />} />
+// 			</Routes>
+// 			{user.userRole === 2 && <HrApp />}
+// 			{user.userRole === 1 && <StudentApp />}
+// 			{user.userRole === 0 && <AdminApp />}
+// 		</UserContext.Provider>
+// 	</>
+// );

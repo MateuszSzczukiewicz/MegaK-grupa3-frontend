@@ -14,7 +14,7 @@ export const StudentDetails = ({
 }: StudentCVType) => {
 	return (
 		<>
-			<StyledImgWrapper></StyledImgWrapper>
+			<StyledImgWrapper $gitHubUserName={gitHubUserName}></StyledImgWrapper>
 			<StyledH1>
 				{firstName} {lastName}
 			</StyledH1>

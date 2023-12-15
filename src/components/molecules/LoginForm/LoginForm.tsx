@@ -1,19 +1,40 @@
 import { useForm, Controller } from 'react-hook-form';
-import { StyledInput } from './LoginForm.styles.ts';
+import { StyledButton, StyledInput } from './LoginForm.styles.ts';
+import { useState } from 'react';
+import { loginUser } from '../../../api/user/LoginUserAPI.ts';
+import { UserFormType } from '../../../types/UserForm.types.ts';
+import { signInSchema, SignInSchemaType } from '../../../types/SignInSchema.types.ts';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-export const LoginForm = () => {
+export const LoginForm = ({ onLogin }: { onLogin: (role: number) => void }) => {
+	const [loginError, setLoginError] = useState('');
+
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
-	} = useForm();
+	} = useForm<SignInSchemaType>({
+		resolver: zodResolver(signInSchema),
+	});
 
-	const onSubmit = async () => {
-		console.log('logged');
+	const onSubmit = async ({ email, pwd }: UserFormType) => {
+		try {
+			const response = await loginUser(email, pwd);
+			if (response.isSuccess) {
+				onLogin(response.userRole);
+			} else {
+				setLoginError('Dane logowania nieprawidłowe');
+				console.error('Login failed');
+			}
+		} catch (err) {
+			console.error('Login Error:', err);
+		}
 	};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
+			{loginError && <p>{loginError}</p>}
+			{errors.email && <p>E-mail jest wymagany</p>}
 			<div>
 				<Controller
 					name="email"
@@ -23,11 +44,10 @@ export const LoginForm = () => {
 						<StyledInput {...field} type="text" placeholder="E-mail" autoComplete="username" />
 					)}
 				/>
-				{errors.username && <p>E-mail jest wymagany</p>}
 			</div>
 			<div>
 				<Controller
-					name="password"
+					name="pwd"
 					control={control}
 					defaultValue=""
 					render={({ field }) => (
@@ -39,7 +59,7 @@ export const LoginForm = () => {
 						/>
 					)}
 				/>
-				{errors.password && <p>Hasło jest wymagane!</p>}
+				<StyledButton type="submit">Zaloguj się</StyledButton>
 			</div>
 		</form>
 	);

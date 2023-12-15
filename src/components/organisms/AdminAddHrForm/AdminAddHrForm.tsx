@@ -98,8 +98,7 @@ export const AdminAddHrForm = () => {
 						<Controller
 							name="maxReservationStudents"
 							control={control}
-							defaultValue=""
-							render={({ field }) => <StyledInput {...field} type="number" />}
+							render={({ field }) => <StyledInput {...field} type="number" min="0" />}
 						/>
 						{errors.maxReservationStudents && <p>{errors.maxReservationStudents.message}</p>}
 					</label>

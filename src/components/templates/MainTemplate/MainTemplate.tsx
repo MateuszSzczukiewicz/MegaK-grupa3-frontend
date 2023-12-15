@@ -1,16 +1,10 @@
 import { Header } from '../../molecules/Header/Header';
 import { ReactNode } from 'react';
 
-export const MainTemplate = ({
-	children,
-	studentId,
-}: {
-	children: ReactNode;
-	studentId: string | undefined;
-}) => {
+export const MainTemplate = ({ children }: { children: ReactNode }) => {
 	return (
 		<>
-			<Header studentId={studentId} />
+			<Header />
 			{children}
 		</>
 	);

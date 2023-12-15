@@ -61,6 +61,7 @@ export const AddStudents = () => {
             const {id, ...withoutId} = student;
             return withoutId;
         });
+        console.log(studentsWithoutIds);
         const res = await PostAddStudents(studentsWithoutIds as Omit<Student, "id">);
         if(res.isSuccess){
             alert("Studenci dodani!")

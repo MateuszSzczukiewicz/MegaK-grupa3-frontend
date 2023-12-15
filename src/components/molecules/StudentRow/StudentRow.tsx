@@ -5,6 +5,7 @@ import { ChevronDownIcon } from '../../../assets/icons/ChevronDownIcon';
 import { useState } from 'react';
 import { StudentRatings } from '../StudentRatings/StudentRatings';
 import { StudentRowPropsType } from '../../../types/StudentsPageProps.types.ts';
+import {PatchStudentHired} from "../../../api/students/PatchStudentHired";
 
 export const StudentRow = ({
 	studentId,
@@ -28,6 +29,10 @@ export const StudentRow = ({
 
 	const arrowStyle = showInfo ? { rotate: '180deg' } : { rotate: '0deg' };
 
+	const hired = () => {
+		PatchStudentHired(studentId as String);
+	}
+
 	return (
 		<StudentRowStyle>
 			<StudentRowInfo
@@ -45,7 +50,7 @@ export const StudentRow = ({
 					<>
 						<PrimaryButton text={'Pokaż CV'} />
 						<PrimaryButton text={'Brak zainteresowania'} />
-						<PrimaryButton text={'Zatrudniony'} />
+						<PrimaryButton text={'Zatrudniony'} onClick={hired} />
 					</>
 				)}
 				<ArrowStyle style={arrowStyle} onClick={() => setShowInfo((prevState) => !prevState)}>

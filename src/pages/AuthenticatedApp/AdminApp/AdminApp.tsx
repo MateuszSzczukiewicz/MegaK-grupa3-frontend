@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { AdminPage } from './AdminPage';
+import { AdminPage } from './AdminPage.tsx';
 
 export const AdminApp = () => {
 	return (

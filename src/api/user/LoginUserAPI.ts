@@ -8,16 +8,13 @@ export const loginUser = async (email: string, pwd: string) => {
 			pwd,
 		});
 
-		if (response.status === 200) {
-			const { user } = response.data;
-			console.log(user);
-			return { success: true, user };
+		if (response.status === 201) {
+			return response.data;
 		} else {
-			console.error('Unexpected response status:', response.status);
-			return { success: false };
+			return { isSuccess: false };
 		}
 	} catch (err) {
 		console.error('Error logging user:', err);
-		return { success: false };
+		return { isSuccess: false };
 	}
 };

@@ -1,8 +1,8 @@
 import {
 	StudentProfileStyle,
 	Wrapper,
-} from '../../components/organisms/StudentProfile/StudentProfile.styles';
-import { PasswordChange } from '../../components/molecules/PasswordChange/PasswordChange';
+} from '../../../components/organisms/StudentProfile/StudentProfile.styles.ts';
+import { PasswordChange } from '../../../components/molecules/PasswordChange/PasswordChange.tsx';
 
 export const HrProfile = () => {
 	return (

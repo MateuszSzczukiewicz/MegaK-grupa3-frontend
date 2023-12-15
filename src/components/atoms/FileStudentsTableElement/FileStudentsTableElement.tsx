@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {FileStudentsTableElementProps} from "../../../types/HrStudentAddTypes/HrStudentsAdd.type";
-import {Stars} from "../../../types/General/General.types";
+import {Stars} from "../../../types/Stars.type";
 
 
 export const FileStudentsTableElement = ({id,column,text,type,changeData}:FileStudentsTableElementProps) => {
@@ -26,7 +26,7 @@ export const FileStudentsTableElement = ({id,column,text,type,changeData}:FileSt
     return(
         <td>
             {!editMode ?
-                <p onDoubleClick={modeHandler}>{text}</p>
+                !(Array.isArray(value)) ? <p onDoubleClick={modeHandler}>{text}</p> : <ul>{value.map(e=><li>{e}</li>)}</ul>
                 :
                 <form onSubmit={e=>submitHandler(e)}>
                     {type ?

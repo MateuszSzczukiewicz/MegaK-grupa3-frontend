@@ -5,6 +5,7 @@ import {FileStudentsTable} from "../../molecules/FileStudentsTable/FileStudentsT
 import {AddStudentsStyle} from "./AddStudents.style";
 import {PrimaryButton} from "../../atoms/PrimaryButton/PrimaryButton";
 import {FileDropBoxForm} from "../../molecules/FileDropBoxForm/FileDropBoxForm";
+import {PostAddStudents} from "../../../api/students/PostAddStudents";
 
 
 export const AddStudents = () => {
@@ -28,15 +29,16 @@ export const AddStudents = () => {
                     }
 
                     return {
-                        id:i,
-                        email:newStudent[0],
-                        courseCompletion:newStudent[1],
-                        courseEngagement:newStudent[2],
-                        projectDegree:newStudent[3],
-                        teamProjectDegree:newStudent[4],
-                        bonusProjectUrls:newStudent[5],
-                    };
+                        id: i,
+                        email: newStudent[0],
+                        courseCompletion: Number(newStudent[1]),
+                        courseEngagement: Number(newStudent[2]),
+                        projectDegree: Number(newStudent[3]),
+                        teamProjectDegree: Number(newStudent[4]),
+                        bonusProjectUrls: newStudent[5].split(",").map(e => e.replace("\"", "").replace(" ", "")),
+                    } as Student;
                 })
+                console.log(arr)
                 setStudentsData(arr);
             }
         })
@@ -55,12 +57,12 @@ export const AddStudents = () => {
         setStudentsData(newStudentsData);
     }
 
-    const fileSubmit = () =>{
+    const fileSubmit = async () =>{
         const studentsWithoutIds = studentsData?.map(student => {
             const {id, ...withoutId} = student;
             return withoutId;
         });
-        console.log("Wysyłam:", studentsWithoutIds);
+        await PostAddStudents(studentsWithoutIds as Omit<Student, "id">);
     }
 
 

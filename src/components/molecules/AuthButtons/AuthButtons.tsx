@@ -5,8 +5,8 @@ import { Wrapper } from './AuthButtons.styles.ts';
 export const AuthButtons = () => {
 	return (
 		<>
-			<RecoveryButton />
 			<Wrapper>
+				<RecoveryButton />
 				<RegisterButton />
 			</Wrapper>
 		</>

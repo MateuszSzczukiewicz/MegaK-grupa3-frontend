@@ -1,5 +1,5 @@
 import { useForm, Controller } from 'react-hook-form';
-import { StyledButton, StyledInput } from './LoginForm.styles.ts';
+import { StyledButton, StyledForm, StyledInput, StyledP } from './LoginForm.styles.ts';
 import { useState } from 'react';
 import { loginUser } from '../../../api/user/LoginUserAPI.ts';
 import { UserFormType } from '../../../types/UserForm.types.ts';
@@ -32,9 +32,9 @@ export const LoginForm = ({ onLogin }: { onLogin: (role: number) => void }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
-			{loginError && <p>{loginError}</p>}
-			{errors.email && <p>E-mail jest wymagany</p>}
+		<StyledForm onSubmit={handleSubmit(onSubmit)}>
+			{loginError && <StyledP>{loginError}</StyledP>}
+			{errors.email && <StyledP>E-mail jest wymagany</StyledP>}
 			<div>
 				<Controller
 					name="email"
@@ -59,8 +59,8 @@ export const LoginForm = ({ onLogin }: { onLogin: (role: number) => void }) => {
 						/>
 					)}
 				/>
-				<StyledButton type="submit">Zaloguj się</StyledButton>
 			</div>
-		</form>
+			<StyledButton type="submit">Zaloguj się</StyledButton>
+		</StyledForm>
 	);
 };

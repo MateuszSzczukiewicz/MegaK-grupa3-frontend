@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { GetUserResponseType } from '../../types/GetUserResponse.type';
 
 export const getUser = async (userId: string): Promise<any> => {
 	try {
-		const res = await axios.get(`${import.meta.env.VITE_API_KEY}/user/${userId}`);
+		const res = await axios.get(`${import.meta.env.VITE_API_KEY}/user/${userId}`, {
+			withCredentials: true,
+		});
 		return res.data;
 	} catch (err: Error) {
 		return {

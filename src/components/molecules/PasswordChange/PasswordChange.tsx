@@ -36,8 +36,9 @@ export const PasswordChange = () => {
 	const onSubmit = async ({ currentPassword, newPassword }: ChangePasswordType) => {
 		try {
 			setFormState((prevState) => ({ ...prevState, loading: true, submitted: false, error: '' }));
-			console.log(user.userId, { currentPassword, newPassword });
-			const data = await changePassword(user.userId, { currentPassword, newPassword });
+			console.log(user);
+			console.log(user.userId, currentPassword, newPassword);
+			const data = await changePassword(user.userId, currentPassword, newPassword);
 			console.log(data);
 			if (data.isSuccess) {
 				setFormState((prevState) => ({ ...prevState, submitted: true }));

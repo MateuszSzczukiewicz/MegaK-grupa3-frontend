@@ -1,16 +1,44 @@
 import { useState } from 'react';
 import { UnauthenticatedApp } from './UnauthenticatedApp/UnauthenticatedApp.tsx';
 import { AuthenticatedApp } from './AuthenticatedApp/AuthenticatedApp';
+import { UserContext } from '../contexts/user.context';
 
 export const Root = () => {
 	const [userRole, setUserRole] = useState<number | null>(null);
+	const [user, setUser] = useState<{
+		userFullName: string;
+		userId: string;
+		userRole: null | number;
+	}>({
+		userFullName: '',
+		userId: '',
+		userRole: null,
+	});
 
 	if (userRole === null) {
-		return <UnauthenticatedApp onLogin={(role) => setUserRole(role)} />;
+		return (
+			<UserContext.Provider value={{ user, setUser }}>
+				<UnauthenticatedApp onLogin={(role) => setUserRole(role)} />
+			</UserContext.Provider>
+		);
 	} else {
-		return <AuthenticatedApp userRole={userRole} />;
+		return (
+			<UserContext.Provider value={{ user, setUser }}>
+				<AuthenticatedApp userRole={userRole} />
+			</UserContext.Provider>
+		);
 	}
 };
+
+// const [user, setUser] = useState<{
+// 	userFullName: string;
+// 	userId: string;
+// 	userRole: null | number;
+// }>({
+// 	userFullName: '',
+// 	userId: '',
+// 	userRole: null,
+// });
 
 // return (
 // 	<>

@@ -1,12 +1,23 @@
 import axios from 'axios';
-import { ChangePasswordResponse, ChangePasswordType } from '../../types/changePassword.type';
+import { ChangePasswordResponse } from '../../types/changePassword.type';
 
 export const changePassword = async (
 	userId: string,
-	data: ChangePasswordType,
+	oldPwd: string,
+	newPwd: string,
 ): Promise<ChangePasswordResponse> => {
 	try {
-		const res = await axios.post(`${import.meta.env.VITE_API_KEY}/user/${userId}`, data);
+		const res = await axios.patch(
+			`${import.meta.env.VITE_API_KEY}/user/changePwd`,
+			{
+				userId,
+				oldPwd,
+				newPwd,
+			},
+			{
+				withCredentials: true,
+			},
+		);
 		return res.data;
 	} catch (err: Error) {
 		return {

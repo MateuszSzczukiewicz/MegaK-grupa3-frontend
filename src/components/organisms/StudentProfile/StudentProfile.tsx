@@ -14,7 +14,7 @@ export const StudentProfile = () => {
 					<Logout />
 					<hr />
 				</>
-				{user.userRole === 1 && (
+				{user.userRole == 1 && (
 					<>
 						<DeleteAccount />
 						<hr />

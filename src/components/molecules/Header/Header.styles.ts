@@ -20,4 +20,5 @@ export const StyledWrapper = styled.div`
 
 export const StyledLogo = styled.img`
 	height: 55px;
+	cursor: pointer;
 `;

@@ -9,6 +9,7 @@ export const loginUser = async (email: string, pwd: string) => {
 		});
 
 		if (response.status === 201) {
+			console.log(response.data);
 			return response.data;
 		} else {
 			return { isSuccess: false };

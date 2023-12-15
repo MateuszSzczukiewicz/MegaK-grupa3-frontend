@@ -14,8 +14,9 @@ export const StyledUserElement = styled.div`
 	}
 `;
 
-export const StyledPhoto = styled.div`
-	background-image: url(${user});
+export const StyledPhoto = styled.div<{ $gitHubUserName?: string }>`
+	background-image: url(${(props) =>
+		props.$gitHubUserName ? `https://github.com/${props.$gitHubUserName}.png` : user});
 	background-size: cover;
 	background-position: center;
 	border-radius: 50%;

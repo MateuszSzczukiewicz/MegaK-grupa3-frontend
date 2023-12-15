@@ -1,9 +1,11 @@
 import { PrimaryButton } from '../PrimaryButton/PrimaryButton';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { logoutUser } from '../../../api/users/LogoutUserAPI';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../contexts/user.context';
 
 export const Logout = () => {
+	const { setUser } = useContext(UserContext);
 	const [info, setInfo] = useState('');
 	const navigate = useNavigate();
 
@@ -12,6 +14,11 @@ export const Logout = () => {
 			const data = await logoutUser();
 			if (data.message === 'logout') {
 				setInfo('Zostałeś wylogowany.');
+				setUser({
+					userFullName: '',
+					userId: '',
+					userRole: null,
+				});
 				navigate('/');
 			}
 		} catch (err) {

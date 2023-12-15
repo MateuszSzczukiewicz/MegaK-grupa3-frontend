@@ -1,14 +1,14 @@
-import { StyledImage, StyledLogin, Wrapper } from '../Login/Login.styles';
 import logo from '../../../assets/images/logo.webp';
 import { RegisterForm } from '../../molecules/RegisterForm/RegisterForm.tsx';
+import { StyledImage, StyledRegister, Wrapper } from './Register.styles.ts';
 
 export const Register = () => {
 	return (
 		<Wrapper>
-			<StyledLogin>
+			<StyledRegister>
 				<StyledImage src={logo} alt="Logo" />
 				<RegisterForm />
-			</StyledLogin>
+			</StyledRegister>
 		</Wrapper>
 	);
 };

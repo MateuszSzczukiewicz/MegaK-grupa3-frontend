@@ -1,26 +1,62 @@
 import { useForm, Controller } from 'react-hook-form';
-import { StyledButton, StyledForm, StyledInput, StyledP } from './LoginForm.styles.ts';
+import {
+	StyledButton,
+	StyledForm,
+	StyledInput,
+	StyledP,
+	Wrapper,
+	StyledButtons,
+} from './LoginForm.styles.ts';
 import { useContext, useState } from 'react';
 import { loginUser } from '../../../api/users/LoginUserAPI.ts';
 import { UserFormType } from '../../../types/UserForm.types.ts';
 import { signInSchema, SignInSchemaType } from '../../../types/SignInSchema.types.ts';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { UserContext } from '../../../contexts/user.context';
+import { RegisterButton } from '../../atoms/RegisterButton/RegisterButton';
+import { recoverPassword } from '../../../api/users/RecoverPasswordAPI';
 
 export const LoginForm = () => {
 	const [loginError, setLoginError] = useState('');
 	const { setUser } = useContext(UserContext);
+	const [info, setInfo] = useState('');
 
 	const {
 		control,
 		handleSubmit,
+		watch,
 		formState: { errors },
 	} = useForm<SignInSchemaType>({
 		resolver: zodResolver(signInSchema),
 	});
 
-	const onSubmit = async ({ email, pwd }: UserFormType) => {
+	const handleClick = async () => {
+		setLoginError('');
+		setInfo('');
+		const recover = {
+			email: watch('email'),
+		};
 		try {
+			if (recover.email === '') {
+				setInfo('Wpisz email aby odzyskać hasło.');
+			} else {
+				const data = await recoverPassword(recover);
+				if (data.isSuccess) {
+					setInfo('Nowe hasło zostało wysłane na Twój email.');
+				} else {
+					setInfo('Wystąpił błąd.');
+				}
+			}
+		} catch (err) {
+			setInfo(`Wystąpił błąd: ${err}`);
+		}
+	};
+
+	const onSubmit = async ({ email, pwd }: UserFormType) => {
+		setLoginError('');
+		setInfo('');
+		try {
+			console.log(email, pwd);
 			const response = await loginUser(email, pwd);
 			if (response.isSuccess) {
 				setUser({
@@ -40,6 +76,7 @@ export const LoginForm = () => {
 	return (
 		<StyledForm onSubmit={handleSubmit(onSubmit)}>
 			{loginError && <StyledP>{loginError}</StyledP>}
+			{info && <StyledP>{info}</StyledP>}
 			{errors.email && <StyledP>E-mail jest wymagany</StyledP>}
 			<div>
 				<Controller
@@ -67,6 +104,12 @@ export const LoginForm = () => {
 				/>
 			</div>
 			<StyledButton type="submit">Zaloguj się</StyledButton>
+			<Wrapper>
+				<StyledButtons type="button" onClick={handleClick}>
+					Zapomniałeś hasła?
+				</StyledButtons>
+				<RegisterButton />
+			</Wrapper>
 		</StyledForm>
 	);
 };

@@ -8,7 +8,7 @@ import {
 	PasswordChangeFormSchemaType,
 } from '../../../types/PasswordChangeFormSchema.types';
 import { ChangePasswordType } from '../../../types/changePassword.type';
-import { changePassword } from '../../../api/users/ChangePassword';
+import { changePassword } from '../../../api/users/ChangePasswordAPI';
 import { UserContext } from '../../../contexts/user.context';
 
 export const PasswordChange = () => {

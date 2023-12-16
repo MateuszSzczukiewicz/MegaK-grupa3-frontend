@@ -29,6 +29,13 @@ export const TableStyle = styled.table`
       line-height: 70px;
       padding: 0 5px;
     }
+    ul{
+      list-style: none;
+      li{
+        line-height: 50px;
+        text-align: left;
+      }
+    }
     @media (min-width: 1140px){
       overflow-x: hidden;
       button{width:auto};

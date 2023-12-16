@@ -1,13 +1,15 @@
 import { useForm, Controller } from 'react-hook-form';
 import { StyledButton, StyledInput } from './LoginForm.styles.ts';
-import { useState } from 'react';
-import { loginUser } from '../../../api/user/LoginUserAPI.ts';
+import { useContext, useState } from 'react';
+import { loginUser } from '../../../api/users/LoginUserAPI.ts';
 import { UserFormType } from '../../../types/UserForm.types.ts';
 import { signInSchema, SignInSchemaType } from '../../../types/SignInSchema.types.ts';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { UserContext } from '../../../contexts/user.context';
 
-export const LoginForm = ({ onLogin }: { onLogin: (role: number) => void }) => {
+export const LoginForm = () => {
 	const [loginError, setLoginError] = useState('');
+	const { setUser } = useContext(UserContext);
 
 	const {
 		control,
@@ -21,7 +23,11 @@ export const LoginForm = ({ onLogin }: { onLogin: (role: number) => void }) => {
 		try {
 			const response = await loginUser(email, pwd);
 			if (response.isSuccess) {
-				onLogin(response.userRole);
+				setUser({
+					userFullName: response.userFullName,
+					userId: response.userId,
+					userRole: response.userRole,
+				});
 			} else {
 				setLoginError('Dane logowania nieprawidłowe');
 				console.error('Login failed');
@@ -59,8 +65,8 @@ export const LoginForm = ({ onLogin }: { onLogin: (role: number) => void }) => {
 						/>
 					)}
 				/>
-				<StyledButton type="submit">Zaloguj się</StyledButton>
 			</div>
+			<StyledButton type="submit">Zaloguj się</StyledButton>
 		</form>
 	);
 };

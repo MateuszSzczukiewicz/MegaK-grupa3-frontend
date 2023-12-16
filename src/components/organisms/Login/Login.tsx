@@ -3,12 +3,12 @@ import logo from '../../../assets/images/logo.webp';
 import { LoginForm } from '../../molecules/LoginForm/LoginForm.tsx';
 import { AuthButtons } from '../../molecules/AuthButtons/AuthButtons.tsx';
 
-export const Login = ({ onLogin }: { onLogin: (role: number) => void }) => {
+export const Login = () => {
 	return (
 		<Wrapper>
 			<StyledLogin>
 				<StyledImage src={logo} alt="Logo" />
-				<LoginForm onLogin={onLogin} />
+				<LoginForm />
 				<AuthButtons />
 			</StyledLogin>
 		</Wrapper>

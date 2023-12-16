@@ -4,4 +4,7 @@ export const AddStudentsStyles = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	height: 700px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 `;

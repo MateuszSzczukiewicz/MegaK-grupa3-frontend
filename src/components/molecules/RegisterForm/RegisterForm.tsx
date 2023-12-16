@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { StyledInput } from '../LoginForm/LoginForm.styles';
 import { decomposeLink } from '../../../utils/decomposeLink.ts';
-import { registerUser } from '../../../api/user/RegisterUserAPI.ts';
+import { registerUser } from '../../../api/users/RegisterUserAPI.ts';
 import { RegisterFormType } from '../../../types/RegisterForm.types.ts';
 import { StyledButton, StyledForm, StyledP } from './RegisterForm.styles.ts';
 

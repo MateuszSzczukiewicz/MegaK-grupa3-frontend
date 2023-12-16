@@ -3,10 +3,14 @@ import axios from 'axios';
 export const loginUser = async (email: string, pwd: string) => {
 	const url = `${import.meta.env.VITE_API_KEY}/auth/login`;
 	try {
-		const response = await axios.post(url, {
-			email,
-			pwd,
-		});
+		// axios.defaults.withCredentials = true;
+		const response = await axios.post(
+			url,
+			{ email, pwd },
+			{
+				withCredentials: true,
+			},
+		);
 
 		if (response.status === 201) {
 			console.log(response.data);

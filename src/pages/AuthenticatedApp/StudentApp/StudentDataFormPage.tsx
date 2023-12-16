@@ -1,11 +1,13 @@
 import { MainTemplate } from '../../../components/templates/MainTemplate/MainTemplate.tsx';
 import { StudentDataForm } from '../../../components/organisms/StudentDataForm/StudentDataForm.tsx';
-import { StudentDataFormPageWrapper } from './StudentDataFormPage.style';
+import { StudentDataFormPageWrapper } from './StudentDataFormPage.styles';
 import { PrimaryButton } from '../../../components/atoms/PrimaryButton/PrimaryButton';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { getUser } from '../../../api/users/GetUserAPI';
 import { UserContext } from '../../../contexts/user.context';
 import { useNavigate } from 'react-router-dom';
+import { Loader } from '../../../components/atoms/Loader/Loader';
+
 
 export const StudentDataFormPage = () => {
 	const navigate = useNavigate();
@@ -19,7 +21,7 @@ export const StudentDataFormPage = () => {
 				setStudentId(data.student.id);
 			}
 		} catch (error) {
-			console.error(error);
+			console.log(error.message);
 		}
 	}, [user]);
 

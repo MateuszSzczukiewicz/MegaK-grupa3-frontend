@@ -5,7 +5,7 @@ export const getStudent = async (id: string) => {
 
 	try {
 		const response: AxiosResponse = await axios.get(url, {
-			// withCredentials: true,
+			withCredentials: true,
 		});
 		return response.data;
 	} catch (err) {

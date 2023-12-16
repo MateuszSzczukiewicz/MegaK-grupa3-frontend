@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StudentRatings } from '../StudentRatings/StudentRatings';
 import { StudentRowPropsType } from '../../../types/StudentsPageProps.types.ts';
-import {PatchStudentHired} from "../../../api/students/PatchStudentHired";
+import {PatchStudentHired} from "../../../api/hrs/PatchStudentHired";
 
 export const StudentRow = ({
 	studentId,
@@ -50,9 +50,9 @@ export const StudentRow = ({
 					<PrimaryButton text={'Zarezerwuj rozmowę'} />
 				) : (
 					<>
-						<PrimaryButton text={'Pokaż CV'} onClick={()=>navigate(`/students/cv/${studentId}`)}/>
+						<PrimaryButton text={'Pokaż CV'} onClick={()=>navigate(`/cv/${studentId}`)}/>
 						<PrimaryButton text={'Brak zainteresowania'} />
-						<PrimaryButton text={'Zatrudniony'} onClick={()=>hired} />
+						<PrimaryButton text={'Zatrudniony'} onClick={hired} />
 					</>
 				)}
 				<ArrowStyle style={arrowStyle} onClick={() => setShowInfo((prevState) => !prevState)}>

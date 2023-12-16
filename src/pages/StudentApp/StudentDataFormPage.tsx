@@ -1,7 +1,7 @@
 import { MainTemplate } from '../../components/templates/MainTemplate/MainTemplate';
 import { StudentDataForm } from '../../components/organisms/StudentDataForm/StudentDataForm';
 import { PrimaryButton } from '../../components/atoms/PrimaryButton/PrimaryButton';
-import { StudentDataFormPageWrapper } from '../AuthenticatedApp/StudentApp/StudentDataFormPage.style';
+import { StudentDataFormPageWrapper } from '../AuthenticatedApp/StudentApp/StudentDataFormPage.styles.tsx';
 import { useNavigate } from 'react-router-dom';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../contexts/user.context';

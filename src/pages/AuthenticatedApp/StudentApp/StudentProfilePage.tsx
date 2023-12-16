@@ -1,3 +1,3 @@
-import { StudentProfile } from '../../../components/organisms/StudentProfile/StudentProfile.tsx';
+import {StudentsComponent} from "../../../components/templates/StudentsComponent/StudentsComponent";
 
-export const StudentProfilePage = () => <StudentProfile />;
+export const StudentProfilePage = () => <StudentsComponent />;

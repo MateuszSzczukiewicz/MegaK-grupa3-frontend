@@ -12,7 +12,9 @@ export const updateStudent = async ({
 	const url = `${import.meta.env.VITE_API_KEY}/student/${id}`;
 
 	try {
-		const response: AxiosResponse = await axios.put(url, dataForUpdate);
+		const response: AxiosResponse = await axios.put(url, dataForUpdate, {
+			withCredentials: true,
+		});
 		return response.data;
 	} catch (err) {
 		console.error('Error updating books:', err);

@@ -1,11 +1,11 @@
-import { StudentProfile } from '../../components/organisms/StudentProfile/StudentProfile.tsx';
+import { Profile } from '../../components/organisms/Profile/Profile.tsx';
 import { MainTemplate } from '../../components/templates/MainTemplate/MainTemplate.tsx';
 
 export const ProfilePage = () => {
 	return (
 		<>
 			<MainTemplate>
-				<StudentProfile />;
+				<Profile />;
 			</MainTemplate>
 		</>
 	);

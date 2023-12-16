@@ -1,11 +1,12 @@
 import { MainTemplate } from '../../../components/templates/MainTemplate/MainTemplate.tsx';
 import { StudentDataForm } from '../../../components/organisms/StudentDataForm/StudentDataForm.tsx';
-import { StudentDataFormPageWrapper } from './StudentDataFormPage.styles';
 import { PrimaryButton } from '../../../components/atoms/PrimaryButton/PrimaryButton';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { getUser } from '../../../api/users/GetUserAPI';
 import { UserContext } from '../../../contexts/user.context';
 import { useNavigate } from 'react-router-dom';
+import { Loader } from '../../../components/atoms/Loader/Loader';
+import { StudentDataFormPageWrapper } from './StudentDataFormPage.styles';
 
 export const StudentDataFormPage = () => {
 	const navigate = useNavigate();
@@ -41,6 +42,7 @@ export const StudentDataFormPage = () => {
 		<MainTemplate>
 			<StudentDataFormPageWrapper>
 				<PrimaryButton text={'Podgląd CV'} onClick={handleClick} />
+				{!studentId && <Loader />}
 				{studentId && <StudentDataForm id={studentId} />}
 			</StudentDataFormPageWrapper>
 		</MainTemplate>

@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 	align-items: center;
 `;
 
-export const StudentProfileStyle = styled.div`
+export const ProfileStyle = styled.div`
 	display: flex;
 	flex-direction: column;
 

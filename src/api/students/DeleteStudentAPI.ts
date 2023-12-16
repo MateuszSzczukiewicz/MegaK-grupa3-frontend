@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-export const deleteStudent = async (studentId: string): Promise<any> => {
+export const deleteStudent = async (
+	studentId: string,
+): Promise<string | { message: string; isSuccess: false }> => {
 	try {
 		const res = await axios.delete(`${import.meta.env.VITE_API_KEY}/student/${studentId}`, {
 			withCredentials: true,

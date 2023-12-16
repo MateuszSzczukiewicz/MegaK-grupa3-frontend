@@ -6,12 +6,9 @@ export const loginUser = async (email: string, pwd: string) => {
 		// axios.defaults.withCredentials = true;
 		const response = await axios.post(
 			url,
+			{ email, pwd },
 			{
-				email,
-				pwd,
-			},
-			{
-				withCredentials: true,
+				// withCredentials: true,
 				// headers: {
 				// 	crossDomain: true,
 				// 	'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import {Stars} from "../General/General.types";
+import {Stars} from "./Stars.type";
 
 export type Student = {
     id:number;

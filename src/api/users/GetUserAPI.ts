@@ -6,7 +6,7 @@ export const getUser = async (
 ): Promise<FindOneUserResponse | { message: string; isSuccess: false }> => {
 	try {
 		const res = await axios.get(`${import.meta.env.VITE_API_KEY}/user/${userId}`, {
-			withCredentials: true,
+			// withCredentials: true,
 		});
 		return res.data;
 	} catch (err: Error) {

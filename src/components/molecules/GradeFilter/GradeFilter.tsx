@@ -1,5 +1,6 @@
-import { Group, StyledH3, StyledInput } from '../../organisms/Filtration/Filtration.styles.ts';
-import { ChangeEvent } from 'react';
+import { useState } from 'react';
+import { GradeButton } from '../../atoms/GradeButton/GradeButton.tsx';
+import { Group, StyledH3, StyledList } from '../../organisms/Filtration/Filtration.styles.ts';
 
 export const GradeFilter = ({
 	title,
@@ -8,15 +9,26 @@ export const GradeFilter = ({
 	title: string;
 	onChange: (value: number) => void;
 }) => {
-	const handleGradeChange = (e: ChangeEvent<HTMLInputElement>) => {
-		const value = parseInt(e.target.value, 10) || 1;
-		onChange(value);
+	const [activeGrade, setActiveGrade] = useState<number | null>(null);
+
+	const handleGradeChange = (gradeNumber: number) => {
+		onChange(gradeNumber);
+		setActiveGrade(gradeNumber);
 	};
 
 	return (
 		<Group>
 			<StyledH3>{title}</StyledH3>
-			<StyledInput type="number" min={1} max={5} placeholder="1" onChange={handleGradeChange} />
+			<StyledList>
+				{[5, 4, 3, 2, 1].map((gradeNumber) => (
+					<GradeButton
+						key={gradeNumber}
+						gradeNumber={gradeNumber}
+						onChange={handleGradeChange}
+						isActive={gradeNumber === activeGrade}
+					/>
+				))}
+			</StyledList>
 		</Group>
 	);
 };

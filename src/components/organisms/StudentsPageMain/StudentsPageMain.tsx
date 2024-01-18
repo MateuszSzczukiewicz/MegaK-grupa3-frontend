@@ -11,6 +11,7 @@ import { FilterBtn } from '../../atoms/FilterBtn/FilterBtn.tsx';
 import { StudentRow } from '../../molecules/StudentRow/StudentRow.tsx';
 import { StudentsPageFooter } from '../../molecules/StudentsPageFooter/StudentsPageFooter.tsx';
 import { StudentStateType } from '../../../types/StudentStateType.types.ts';
+import { getStudentsForInterview } from '../../../api/students/GetStudentsForInterviewAPI';
 
 export const StudentsPageMain = ({ simplified }: { simplified: boolean }) => {
 	const [rowsLimit, setRowsLimit] = useState<number>(5);
@@ -23,12 +24,17 @@ export const StudentsPageMain = ({ simplified }: { simplified: boolean }) => {
 
 	const fetchData = useCallback(async () => {
 		try {
-			const data = await getStudents();
-			setStudentsList(data);
+			if (simplified) {
+				const data = await getStudents();
+				setStudentsList(data);
+			} else {
+				const data = await getStudentsForInterview();
+				setStudentsList(data);
+			}
 		} catch (error) {
 			console.error('Error getting students:', error);
 		}
-	}, []);
+	}, [simplified]);
 
 	useEffect(() => {
 		(async () => {
@@ -38,7 +44,7 @@ export const StudentsPageMain = ({ simplified }: { simplified: boolean }) => {
 				console.error('Error fetching students:', e);
 			}
 		})();
-	}, [fetchData]);
+	}, [simplified]);
 
 	const renderRows = useMemo(() => {
 		return filteredData

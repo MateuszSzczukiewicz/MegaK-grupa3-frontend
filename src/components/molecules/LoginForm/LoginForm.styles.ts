@@ -14,7 +14,18 @@ export const StyledInput = styled.input`
 	}
 `;
 
+export const StyledForm = styled.form`
+	display: flex;
+	flex-direction: column;
+`;
+
+export const StyledP = styled.p`
+	margin: 0 auto 15px;
+	color: ${({ theme }) => theme.color.red3};
+`;
+
 export const StyledButton = styled.button`
+	align-self: end;
 	width: 91px;
 	height: 39px;
 	border: none;

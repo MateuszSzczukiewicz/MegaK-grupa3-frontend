@@ -4,6 +4,7 @@ import Logo from '../../../assets/images/logo.webp';
 import { UserElement } from '../../atoms/UserElement/UserElement';
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/user.context';
+import { UserRole } from '../../../types/GetUserResponse.type';
 
 export const Header = () => {
 	const navigate = useNavigate();
@@ -12,13 +13,13 @@ export const Header = () => {
 
 	const handleClick = () => {
 		switch (userRole) {
-			case 0:
+			case UserRole.ADMIN:
 				navigate('/admin');
 				break;
-			case 1:
+			case UserRole.STUDENT:
 				navigate('/student');
 				break;
-			case 2:
+			case UserRole.HR:
 				navigate('/students');
 				break;
 		}

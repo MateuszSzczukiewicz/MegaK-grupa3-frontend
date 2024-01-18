@@ -6,6 +6,6 @@ interface Props {
 	children: React.ReactNode;
 }
 
-export const SingleDetail = ({ children }: Props) => {
-	return <SingleDetailWrapper>{children}</SingleDetailWrapper>;
-};
+export const SingleDetail = ({ children }: Props) => (
+	<SingleDetailWrapper>{children}</SingleDetailWrapper>
+);

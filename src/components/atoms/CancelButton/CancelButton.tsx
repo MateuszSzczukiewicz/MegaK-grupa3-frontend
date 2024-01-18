@@ -5,6 +5,4 @@ export const CancelButton = ({
 	toggleFilterVisibile,
 }: {
 	toggleFilterVisibile: MouseEventHandler;
-}) => {
-	return <StyledButton onClick={toggleFilterVisibile}>Anuluj</StyledButton>;
-};
+}) => <StyledButton onClick={toggleFilterVisibile}>Anuluj</StyledButton>;

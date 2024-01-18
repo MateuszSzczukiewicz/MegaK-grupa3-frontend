@@ -7,11 +7,9 @@ export const EmploymentExpectation = ({
 }: {
 	expectationName: string;
 	children: ReactNode;
-}) => {
-	return (
-		<EmploymentExpectationSection>
-			<p>{expectationName}</p>
-			<div>{children}</div>
-		</EmploymentExpectationSection>
-	);
-};
+}) => (
+	<EmploymentExpectationSection>
+		<p>{expectationName}</p>
+		<div>{children}</div>
+	</EmploymentExpectationSection>
+);

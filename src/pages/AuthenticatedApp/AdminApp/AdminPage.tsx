@@ -8,14 +8,12 @@ import { AdminPageWrapper } from './AdminPage.styles';
 export const AdminPage = () => {
 	const [simplified, setSimplified] = useState(true);
 	return (
-		<>
-			<MainTemplate>
-				<AdminPageWrapper>
-					<AdminPageHeader simplified={simplified} setSimplified={setSimplified} />
-					{simplified && <AdminAddHrForm />}
-					{!simplified && <AddStudents />}
-				</AdminPageWrapper>
-			</MainTemplate>
-		</>
+		<MainTemplate>
+			<AdminPageWrapper>
+				<AdminPageHeader simplified={simplified} setSimplified={setSimplified} />
+				{simplified && <AdminAddHrForm />}
+				{!simplified && <AddStudents />}
+			</AdminPageWrapper>
+		</MainTemplate>
 	);
 };

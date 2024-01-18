@@ -9,7 +9,7 @@ export const StudentApp = () => {
 		<Routes>
 			<Route path="*" element={<StudentDataFormPage />} />
 			<Route path="/profile" element={<ProfilePage />} />
-			<Route path="/students/cv/:studentId" element={<StudentPage />} />
+			<Route path="/cv/:studentId" element={<StudentPage />} />
 		</Routes>
 	);
 };

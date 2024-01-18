@@ -38,17 +38,18 @@ export const PasswordChange = () => {
 			setFormState((prevState) => ({ ...prevState, loading: true, submitted: false, error: '' }));
 			console.log(user);
 			console.log(user.userId, currentPassword, newPassword);
-			const data = await changePassword(user.userId, currentPassword, newPassword);
-			console.log(data);
+			const data = await changePassword({
+				userId: user.userId,
+				oldPwd: currentPassword,
+				newPwd: newPassword,
+			});
 			if (data.isSuccess) {
 				setFormState((prevState) => ({ ...prevState, submitted: true }));
 			} else {
-				console.log(data);
 				setFormState((prevState) => ({ ...prevState, error: `Wystąpił błąd: ${data.message}` }));
 			}
 			setFormState((prevState) => ({ ...prevState, loading: false }));
 		} catch (err) {
-			console.log(err);
 			setFormState((prevState) => ({ ...prevState, loading: false }));
 			setFormState((prevState) => ({ ...prevState, error: `Wystąpił błąd: ${err}` }));
 		}

@@ -3,7 +3,7 @@ import axios from 'axios';
 export const registerUser = async (userId: string, token: string, password: string) => {
 	const url = `${import.meta.env.VITE_API_KEY}/user/activate`;
 	try {
-		const response = await axios.post(
+		const response = await axios.patch(
 			url,
 			{
 				userId,

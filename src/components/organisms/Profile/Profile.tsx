@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../../contexts/user.context';
 import { DeleteAccount } from '../../atoms/DeleteAccount/DeleteAccount';
 import { Logout } from '../../atoms/Logout/Logout';
+import { UserRole } from '../../../types/GetUserResponse.type';
 
 export const Profile = () => {
 	const { user } = useContext(UserContext);
@@ -14,7 +15,7 @@ export const Profile = () => {
 					<Logout />
 					<hr />
 				</>
-				{user.userRole == 1 && (
+				{user.userRole === UserRole.STUDENT && (
 					<>
 						<DeleteAccount />
 						<hr />

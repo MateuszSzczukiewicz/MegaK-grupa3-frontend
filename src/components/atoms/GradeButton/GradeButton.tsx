@@ -5,7 +5,6 @@ import { StyledButton } from '../../organisms/Filtration/Filtration.styles.ts';
 export const GradeButton = ({ gradeNumber, onChange, isActive }: GradeButtonProps) => {
 	const handleGradeClick = () => {
 		onChange(gradeNumber);
-		console.log(gradeNumber);
 	};
 
 	return (

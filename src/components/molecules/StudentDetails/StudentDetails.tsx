@@ -11,27 +11,25 @@ export const StudentDetails = ({
 	email,
 	tel,
 	gitHubUserName,
-}: StudentCVType) => {
-	return (
-		<>
-			<StyledImgWrapper $gitHubUserName={gitHubUserName}></StyledImgWrapper>
-			<StyledH1>
-				{firstName} {lastName}
-			</StyledH1>
-			<StyledLink>
-				<div>
-					<GitHubIcon />
-				</div>
-				<p>{gitHubUserName}</p>
-			</StyledLink>
-			<SingleDetail>
-				<PhoneIcon />
-				<a href={`tel:${tel}`}>{tel}</a>
-			</SingleDetail>
-			<SingleDetail>
-				<MailIcon />
-				<a href={`mailto:${email}`}>{email}</a>
-			</SingleDetail>
-		</>
-	);
-};
+}: StudentCVType) => (
+	<>
+		<StyledImgWrapper $gitHubUserName={gitHubUserName}></StyledImgWrapper>
+		<StyledH1>
+			{firstName} {lastName}
+		</StyledH1>
+		<StyledLink>
+			<div>
+				<GitHubIcon />
+			</div>
+			<p>{gitHubUserName}</p>
+		</StyledLink>
+		<SingleDetail>
+			<PhoneIcon />
+			<a href={`tel:${tel}`}>{tel}</a>
+		</SingleDetail>
+		<SingleDetail>
+			<MailIcon />
+			<a href={`mailto:${email}`}>{email}</a>
+		</SingleDetail>
+	</>
+);

@@ -3,7 +3,6 @@ import axios from 'axios';
 export const loginUser = async (email: string, pwd: string) => {
 	const url = `${import.meta.env.VITE_API_KEY}/auth/login`;
 	try {
-		// axios.defaults.withCredentials = true;
 		const response = await axios.post(
 			url,
 			{ email, pwd },

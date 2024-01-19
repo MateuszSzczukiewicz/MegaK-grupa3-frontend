@@ -6,7 +6,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { StudentRatings } from '../StudentRatings/StudentRatings';
 import { StudentRowPropsType } from '../../../types/StudentsPageProps.types.ts';
-import {PatchStudentHired} from "../../../api/hrs/PatchStudentHired";
+import { PatchStudentHired } from '../../../api/hrs/PatchStudentHiredAPI';
+import { PatchStudentDisinterest } from '../../../api/hrs/PatchStudentDisinterestAPI';
+import { PatchStudentReservation } from '../../../api/hrs/PatchStudentReservationAPI';
 
 export const StudentRow = ({
 	studentId,
@@ -32,8 +34,16 @@ export const StudentRow = ({
 	const navigate = useNavigate();
 
 	const hired = async () => {
-		await PatchStudentHired(studentId as String);
-	}
+		await PatchStudentHired({studentId});
+	};
+
+	const notInterested = async () => {
+		await PatchStudentDisinterest({studentId});
+	};
+
+	const reservation = async () => {
+		await PatchStudentReservation({studentId});
+	};
 
 	return (
 		<StudentRowStyle>
@@ -47,11 +57,11 @@ export const StudentRow = ({
 
 			<ButtonsStyle>
 				{simplified ? (
-					<PrimaryButton text={'Zarezerwuj rozmowę'} />
+					<PrimaryButton text={'Zarezerwuj rozmowę'} onClick={reservation} />
 				) : (
 					<>
-						<PrimaryButton text={'Pokaż CV'} onClick={()=>navigate(`/cv/${studentId}`)}/>
-						<PrimaryButton text={'Brak zainteresowania'} />
+						<PrimaryButton text={'Pokaż CV'} onClick={() => navigate(`/cv/${studentId}`)} />
+						<PrimaryButton text={'Brak zainteresowania'} onClick={notInterested} />
 						<PrimaryButton text={'Zatrudniony'} onClick={hired} />
 					</>
 				)}

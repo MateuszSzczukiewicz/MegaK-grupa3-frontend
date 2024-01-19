@@ -9,18 +9,10 @@ export const Root = () => {
 		userId: '',
 		userRole: null,
 	});
-
-	if (user.userRole === null) {
-		return (
-			<UserContext.Provider value={{ user, setUser }}>
-				<UnauthenticatedApp />
-			</UserContext.Provider>
-		);
-	} else {
-		return (
-			<UserContext.Provider value={{ user, setUser }}>
-				<AuthenticatedApp />
-			</UserContext.Provider>
-		);
-	}
+	const { userRole } = user;
+	return (
+		<UserContext.Provider value={{ user, setUser }}>
+			{userRole === null ? <UnauthenticatedApp /> : <AuthenticatedApp />}
+		</UserContext.Provider>
+	);
 };

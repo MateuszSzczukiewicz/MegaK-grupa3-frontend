@@ -5,6 +5,4 @@ export const ClearButton = ({
 	handleClearButtonClick,
 }: {
 	handleClearButtonClick: MouseEventHandler;
-}) => {
-	return <StyledButton onClick={handleClearButtonClick}>Wyczyść wszystkie</StyledButton>;
-};
+}) => <StyledButton onClick={handleClearButtonClick}>Wyczyść wszystkie</StyledButton>;

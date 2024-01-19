@@ -4,16 +4,14 @@ import { StyledButton, StudentPrimaryInfoSection, StyledAside } from './StudentP
 import { GoBackElement } from '../../atoms/GoBackElement/GoBackElement';
 import { StudentCVType } from '../../../types/StudentCVType.types.ts';
 
-export const StudentPrimaryInfo = (studentData: StudentCVType) => {
-	return (
-		<StyledAside>
-			<GoBackElement />
-			<StudentPrimaryInfoSection>
-				<StudentDetails {...studentData} />
-				<AboutMeSection {...studentData} />
-				<StyledButton>Brak zainteresowania</StyledButton>
-				<StyledButton>Zatrudniony</StyledButton>
-			</StudentPrimaryInfoSection>
-		</StyledAside>
-	);
-};
+export const StudentPrimaryInfo = (studentData: StudentCVType) => (
+	<StyledAside>
+		<GoBackElement />
+		<StudentPrimaryInfoSection>
+			<StudentDetails {...studentData} />
+			<AboutMeSection {...studentData} />
+			<StyledButton>Brak zainteresowania</StyledButton>
+			<StyledButton>Zatrudniony</StyledButton>
+		</StudentPrimaryInfoSection>
+	</StyledAside>
+);

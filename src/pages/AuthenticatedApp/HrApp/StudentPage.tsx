@@ -6,10 +6,8 @@ export const StudentPage = () => {
 	const { studentId } = useParams();
 
 	return (
-		<>
-			<MainTemplate studentId={studentId}>
-				<StudentCVTemplate studentId={studentId} />
-			</MainTemplate>
-		</>
+		<MainTemplate studentId={studentId}>
+			<StudentCVTemplate studentId={studentId} />
+		</MainTemplate>
 	);
 };
